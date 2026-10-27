@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davi Artur — Desenvolvedor em formação &amp; Suporte T.I.</title>
+  <meta name="description" content="Portfólio de Davi Artur Silva Sousa — estudante de ADS no Recife, desenvolvedor em formação com HTML, CSS, JavaScript e Python. Projetos, trajetória e um assistente que responde sobre mim." />
+  <meta name="author" content="Davi Artur Silva Sousa" />
+  <meta name="theme-color" content="#070a12" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Davi Artur — Desenvolvedor em formação & Suporte T.I." />
+  <meta property="og:description" content="Interfaces, automações e suporte. Conheça os projetos e a trajetória de Davi Artur." />
+  <meta property="og:image" content="assets/img/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Davi Artur Silva Sousa",
+    "jobTitle": "Desenvolvedor em formação",
+    "email": "mailto:Daviarturss27@gmail.com",
+    "telephone": "+55-81-99219-2077",
+    "address": { "@type": "PostalAddress", "addressLocality": "Recife", "addressRegion": "PE", "addressCountry": "BR" },
+    "sameAs": ["https://github.com/daviarturss", "https://www.linkedin.com/in/daviartur/"],
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "Git", "Suporte Técnico", "Inteligência Artificial"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
+
+  <!-- ===== ÍCONES (sprite) ===== -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path fill="currentColor" stroke="none" d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path fill="currentColor" stroke="none" d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-command" viewBox="0 0 24 24"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 0 0 0-6z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10.7l-5.9 1.9L12 19l-2.1-6.4L4 10.7l6.1-1.9L12 3z"/><path d="M19 15l.9 2.6L22 18.5l-2.1.9L19 22l-.9-2.6L16 18.5l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-graduation" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  </svg>
+
+  <!-- ===== FUNDO ===== -->
+  <div class="bg" aria-hidden="true">
+    <canvas id="bg-canvas"></canvas>
+    <div class="bg-grid"></div>
+    <div class="bg-aurora bg-aurora--1"></div>
+    <div class="bg-aurora bg-aurora--2"></div>
+    <div class="bg-aurora bg-aurora--3"></div>
+    <div class="bg-noise"></div>
+  </div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Davi Artur — voltar ao início" data-logo>
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand-text">davi<span class="brand-dot">.</span>dev</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#sobre" data-nav="sobre">Sobre</a>
+        <a href="#stack" data-nav="stack">Stack</a>
+        <a href="#projetos" data-nav="projetos">Projetos</a>
+        <a href="#trajetoria" data-nav="trajetoria">Trajetória</a>
+        <a href="#contato" data-nav="contato">Contato</a>
+        <a class="nav-cta" href="#contato">
+          Vamos conversar
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="palette-btn" id="palette-open" type="button" aria-label="Abrir paleta de comandos">
+          <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <span class="palette-btn-text">Buscar</span>
+          <kbd class="kbd">Ctrl K</kbd>
+        </button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema claro e escuro">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="availability" data-reveal>
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Disponível para estágio e júnior em TI</span>
+          </div>
+
+          <h1 class="hero-title" data-reveal style="--d:.06s">
+            Davi <span class="grad">Artur</span><span class="title-dot" aria-hidden="true">.</span>
+          </h1>
+
+          <p class="hero-role mono" data-reveal style="--d:.12s">
+            <span class="prompt" aria-hidden="true">&gt;</span>
+            <span id="typed-role" aria-hidden="true"></span><span class="typed-caret" aria-hidden="true"></span>
+            <span class="sr-only">Desenvolvedor em formação e suporte técnico</span>
+          </p>
+
+          <p class="hero-lead" data-reveal style="--d:.18s">
+            Estudante de ADS no Recife, construindo interfaces, automações e soluções que
+            organizam o dia a dia. Base técnica em crescimento, olhar de quem já cuidou de gente.
+          </p>
+
+          <div class="hero-actions" data-reveal style="--d:.24s">
+            <a class="btn btn-primary" href="#projetos">
+              Ver projetos
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+            </a>
+            <details class="resume-menu">
+              <summary class="btn btn-ghost">
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Currículo
+                <svg class="icon icon-chev" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </summary>
+              <div class="resume-menu-list">
+                <a href="assets/cv/Curriculo_Davi_Suporte_TI.pdf" download>
+                  <span>Suporte T.I.<small>PDF · foco em help desk</small></span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                </a>
+                <a href="assets/cv/Curriculo_Davi_Administrativo.pdf" download>
+                  <span>Administrativo<small>PDF · rotinas e atendimento</small></span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                </a>
+              </div>
+            </details>
+          </div>
+
+          <div class="hero-socials" data-reveal style="--d:.3s">
+            <a class="social-btn" href="https://github.com/daviarturss" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Davi Artur">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+            </a>
+            <a class="social-btn" href="https://www.linkedin.com/in/daviartur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Davi Artur">
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+            </a>
+            <a class="social-btn" href="mailto:Daviarturss27@gmail.com" aria-label="Enviar e-mail para Davi Artur">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+            </a>
+            <span class="social-note mono">Recife · PE · Brasil</span>
+          </div>
+
+          <dl class="hero-facts" data-reveal style="--d:.36s">
+            <div><dt>Base</dt><dd>Recife · PE</dd></div>
+            <div><dt>Formação</dt><dd>ADS · Estácio</dd></div>
+            <div><dt>Foco</dt><dd>Dev + Suporte</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-visual" data-reveal style="--d:.15s">
+          <div class="code-window tilt" id="code-window">
+            <div class="code-titlebar">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="code-tabs" role="tablist" aria-label="Arquivos do perfil">
+                <button class="code-tab is-active" type="button" role="tab" aria-selected="true" data-file="profile">profile.js</button>
+                <button class="code-tab" type="button" role="tab" aria-selected="false" data-file="skills">skills.json</button>
+                <button class="code-tab" type="button" role="tab" aria-selected="false" data-file="goal">objetivo.md</button>
+              </div>
+              <span class="code-branch mono" aria-hidden="true">main</span>
+            </div>
+            <div class="code-content">
+              <div class="code-lines" id="code-lines" role="tabpanel" aria-label="Conteúdo do arquivo"></div>
+            </div>
+            <div class="code-statusbar mono" aria-hidden="true">
+              <span class="status-item"><span class="branch-icon">⑂</span> main</span>
+              <span class="status-item">UTF-8</span>
+              <span class="status-item">Ln 1, Col 1</span>
+              <span class="status-item status-ok"><span class="dot"></span> Pronto</span>
+            </div>
+          </div>
+
+          <span class="float-chip chip-js" aria-hidden="true">JS</span>
+          <span class="float-chip chip-py" aria-hidden="true">Py</span>
+          <span class="float-chip chip-ai" aria-hidden="true">✦ IA</span>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#sobre" aria-label="Rolar para a seção sobre">
+        <span class="scroll-cue-line" aria-hidden="true"></span>
+        <span class="mono">scroll</span>
+      </a>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee-track"></div>
+    </div>
+
+    <!-- ===== SOBRE ===== -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><i>01</i> Sobre</span>
+          <h2>Curiosidade que virou <span class="grad">código</span>.</h2>
+          <p class="section-lead">Sem personagem e sem buzzword: o que eu já sei, o que estou aprendendo e como isso se conecta com o trabalho real.</p>
+        </header>
+
+        <div class="about-grid">
+          <aside class="profile-card" data-reveal>
+            <div class="profile-top">
+              <div class="avatar" aria-hidden="true">
+                <span>DA</span>
+                <i class="avatar-ring"></i>
+              </div>
+              <div>
+                <h3>Davi Artur</h3>
+                <p class="profile-role">Dev em formação · Suporte T.I.</p>
+              </div>
+            </div>
+
+            <ul class="profile-info">
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+                <span>Torre, Recife — PE</span>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-graduation"/></svg>
+                <span>ADS · Estácio (cursando)</span>
+              </li>
+              <li>
+                <svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>
+                <span>Português nativo · Inglês intermediário</span>
+              </li>
+            </ul>
+
+            <div class="profile-divider"></div>
+
+            <div class="profile-status">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>Aberto a oportunidades</span>
+              <b class="mono">2026</b>
+            </div>
+
+            <div class="profile-actions">
+              <a class="btn btn-primary btn-sm" href="assets/cv/Curriculo_Davi_Suporte_TI.pdf" download>
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Baixar CV
+              </a>
+              <a class="icon-btn bordered" href="https://github.com/daviarturss" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              </a>
+              <a class="icon-btn bordered" href="https://www.linkedin.com/in/daviartur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+              </a>
+            </div>
+          </aside>
+
+          <div class="about-main">
+            <div class="about-text" data-reveal>
+              <p>Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em desenvolvimento web — HTML, CSS e JavaScript — além de Python, Git e ferramentas de inteligência artificial.</p>
+              <p>Minha trajetória passa pela área administrativa, onde aprendi a lidar com pessoas, sistemas, prazos e detalhes. Levo essas habilidades para o código: <strong>organização, comunicação clara e vontade de resolver o problema de verdade</strong>.</p>
+              <p>Hoje busco minha primeira oportunidade em TI, no desenvolvimento ou no suporte, para aprender em contexto real e entregar valor desde o primeiro dia.</p>
+              <blockquote class="pitch">
+                <span aria-hidden="true">“</span>
+                Aprendo rápido, organizo bem e gosto de gente. Se você precisa de alguém que una base técnica, atendimento e vontade de crescer, é comigo.
+              </blockquote>
+            </div>
+
+            <div class="highlights" id="highlights" data-reveal></div>
+
+            <div class="stats-row" id="stats-row" data-reveal></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STACK ===== -->
+    <section class="section" id="stack">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><i>02</i> Stack</span>
+          <h2>Ferramentas para <span class="grad">tirar do papel</span>.</h2>
+          <p class="section-lead">Níveis honestos: o que já uso com segurança, o que estou aprofundando e o que está no forno.</p>
+        </header>
+
+        <div class="skill-filters" id="skill-filters" role="tablist" aria-label="Filtrar habilidades" data-reveal></div>
+        <div class="skills-grid" id="skills-grid"></div>
+
+        <p class="stack-note" data-reveal>
+          <svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg>
+          Fora do código: Excel avançado, pacote Office, atendimento ao público e muita curiosidade.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== PROJETOS ===== -->
+    <section class="section" id="projetos">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><i>03</i> Projetos</span>
+          <h2>Coisas que eu <span class="grad">construí</span>.</h2>
+          <p class="section-lead">Projetos reais, com problemas reais. Do monitor de hardware ao site que você está lendo.</p>
+        </header>
+
+        <div class="projects-grid" id="projects-grid"></div>
+
+        <div class="projects-cta" data-reveal>
+          <p>O código e os experimentos ficam no GitHub.</p>
+          <a class="btn btn-ghost" href="https://github.com/daviarturss" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+            github.com/daviarturss
+            <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRAJETÓRIA ===== -->
+    <section class="section" id="trajetoria">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="eyebrow"><i>04</i> Trajetória</span>
+          <h2>Aprendizado que acontece <span class="grad">na prática</span>.</h2>
+          <p class="section-lead">Formação, trabalho e curso — cada etapa somou uma habilidade que eu levo para a TI.</p>
+        </header>
+
+        <div class="timeline-layout">
+          <aside class="timeline-aside" data-reveal>
+            <div class="aside-card">
+              <h3>O que eu levo comigo</h3>
+              <div class="soft-cloud" id="soft-skills"></div>
+              <div class="aside-quote">
+                <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
+                <p>Da rotina administrativa para o código: organização, atendimento e resolução de problemas.</p>
+              </div>
+              <a class="btn btn-ghost btn-sm btn-block" href="assets/cv/Curriculo_Davi_Administrativo.pdf" download>
+                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+                Currículo administrativo
+              </a>
+            </div>
+          </aside>
+
+          <ol class="timeline" id="timeline-list"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTATO ===== -->
+    <section class="section section--contact" id="contato">
+      <div class="container">
+        <div class="contact-card" data-reveal>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <span class="eyebrow"><i>05</i> Contato</span>
+              <h2>Vamos construir <span class="grad">algo juntos?</span></h2>
+              <p class="contact-lead">
+                Estou em busca da primeira oportunidade em TI — estágio ou júnior, em desenvolvimento
+                ou suporte. Se fizer sentido, me chama: respondo rápido e com vontade.
+              </p>
+
+              <ul class="contact-list">
+                <li>
+                  <a href="mailto:Daviarturss27@gmail.com">
+                    <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                    <span class="contact-text"><small>E-mail</small>Daviarturss27@gmail.com</span>
+                    <svg class="icon contact-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+                  </a>
+                  <button class="copy-btn" type="button" data-copy="Daviarturss27@gmail.com" aria-label="Copiar e-mail">
+                    <svg class="icon" aria-hidden="true"><use href="#i-copy"/></svg>
+                  </button>
+                </li>
+                <li>
+                  <a href="https://wa.me/5581992192077" target="_blank" rel="noopener noreferrer">
+                    <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+                    <span class="contact-text"><small>WhatsApp</small>(81) 99219-2077</span>
+                    <svg class="icon contact-arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/daviartur/" target="_blank" rel="noopener noreferrer">
+                    <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></span>
+                    <span class="contact-text"><small>LinkedIn</small>in/daviartur</span>
+                    <svg class="icon contact-arrow" aria-hidden="true"><use href="#i-external"/></svg>
+                  </a>
+                </li>
+              </ul>
+
+              <div class="contact-meta">
+                <span><span class="pulse-dot" aria-hidden="true"></span> Disponível agora</span>
+                <span class="mono">Recife · PE</span>
+              </div>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="field-name">Seu nome</label>
+                <input id="field-name" name="name" type="text" placeholder="Como posso te chamar?" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="field-email">Seu e-mail</label>
+                <input id="field-email" name="email" type="email" placeholder="voce@empresa.com" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="field-message">Mensagem</label>
+                <textarea id="field-message" name="message" rows="4" placeholder="Conte sobre a vaga ou a ideia..." required></textarea>
+              </div>
+              <button class="btn btn-primary btn-block" type="submit">
+                Enviar mensagem
+                <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+              </button>
+              <p class="form-note">O formulário abre seu app de e-mail com a mensagem pronta. Nenhum dado é armazenado.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#inicio">
+          <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+          <span class="brand-text">davi<span class="brand-dot">.</span>dev</span>
+        </a>
+        <p>Portfólio feito com HTML, CSS, JavaScript e bastante curiosidade.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <a href="#sobre">Sobre</a>
+        <a href="#stack">Stack</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="footer-actions">
+        <a class="social-btn" href="https://github.com/daviarturss" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+        </a>
+        <a class="social-btn" href="https://www.linkedin.com/in/daviartur/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+        </a>
+        <a class="social-btn" href="mailto:Daviarturss27@gmail.com" aria-label="E-mail">
+          <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Davi Artur Silva Sousa. Todos os direitos reservados.</p>
+      <p class="mono">Recife · PE <span class="footer-dot" aria-hidden="true">·</span> feito à mão, sem template</p>
+      <a class="back-top" href="#inicio" aria-label="Voltar ao topo">
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ===== CHATBOT ===== -->
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" aria-hidden="true">
+    <header class="chat-header">
+      <div class="chat-avatar" aria-hidden="true">
+        DA
+        <span class="chat-avatar-status"></span>
+      </div>
+      <div class="chat-heading">
+        <h3 id="chat-title">Assistente do Davi</h3>
+        <p class="chat-sub">
+          <span class="chat-mode-dot" id="chat-mode-dot"></span>
+          <span id="chat-mode">cérebro local</span>
+        </p>
+      </div>
+      <div class="chat-actions">
+        <button class="icon-btn" id="chat-clear" type="button" aria-label="Limpar conversa">
+          <svg class="icon" aria-hidden="true"><use href="#i-trash"/></svg>
+        </button>
+        <button class="icon-btn" id="chat-close" type="button" aria-label="Fechar assistente">
+          <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="chat-body" id="chat-body" aria-live="polite" aria-relevant="additions">
+      <div class="chat-intro">
+        <div class="chat-intro-avatar" aria-hidden="true">DA</div>
+        <p><strong>Oi! 👋</strong> Eu sou o assistente do Davi. Pergunte sobre formação, experiência, projetos, stack ou contato — eu respondo com base no currículo dele.</p>
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="chat-suggestions" aria-label="Sugestões de perguntas"></div>
+
+    <form class="chat-form" id="chat-form">
+      <label class="sr-only" for="chat-input">Sua mensagem</label>
+      <textarea id="chat-input" name="message" rows="1" maxlength="500" placeholder="Pergunte algo sobre o Davi..." autocomplete="off"></textarea>
+      <button class="chat-send" id="chat-send" type="submit" aria-label="Enviar mensagem">
+        <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+      </button>
+    </form>
+    <p class="chat-disclaimer">
+      Assistente virtual · respostas baseadas no currículo
+      <span aria-hidden="true">·</span>
+      <a href="#contato" data-chat-contact>falar com o Davi</a>
+    </p>
+  </div>
+
+  <button class="chat-fab" id="chat-fab" type="button" aria-label="Abrir assistente do Davi" aria-expanded="false" aria-controls="chat-panel">
+    <span class="chat-fab-icon" aria-hidden="true">
+      <svg class="icon"><use href="#i-message"/></svg>
+    </span>
+    <span class="chat-fab-label">Pergunte sobre mim</span>
+    <span class="chat-fab-badge" id="chat-fab-badge" aria-hidden="true"></span>
+  </button>
+
+  <!-- ===== COMMAND PALETTE ===== -->
+  <div class="palette" id="palette" aria-hidden="true">
+    <div class="palette-backdrop" data-palette-close></div>
+    <div class="palette-box" role="dialog" aria-modal="true" aria-label="Paleta de comandos">
+      <div class="palette-search">
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <input id="palette-input" type="text" placeholder="Ir para... ou digite um comando" autocomplete="off" spellcheck="false" />
+        <kbd class="kbd">Esc</kbd>
+      </div>
+      <ul class="palette-list" id="palette-list" role="listbox" aria-label="Comandos"></ul>
+      <div class="palette-foot">
+        <span><kbd class="kbd">↑</kbd><kbd class="kbd">↓</kbd> navegar</span>
+        <span><kbd class="kbd">↵</kbd> selecionar</span>
+        <span class="mono">davi.dev</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">
+      Este portfólio usa JavaScript para as animações e o assistente virtual. Você ainda pode falar com o Davi em
+      <a href="mailto:Daviarturss27@gmail.com">Daviarturss27@gmail.com</a>.
+    </div>
+  </noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

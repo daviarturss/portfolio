@@ -1,0 +1,14 @@
+{
+  "name": "portfolio-davi-artur",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfólio pessoal de Davi Artur Silva Sousa — landing page com fundo animado e assistente com IA.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
