@@ -71,7 +71,9 @@
     let w = 0, h = 0, dpr = 1;
     let particles = [];
     let raf = null;
+    let lastFrame = 0;
     let matrixUntil = 0;
+    const FRAME_MS = 1000 / 30;
     const mouse = { x: -9999, y: -9999, active: false };
 
     const palettes = {
@@ -88,7 +90,7 @@
       const rect = canvas.getBoundingClientRect();
       w = rect.width;
       h = rect.height;
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -96,7 +98,7 @@
     }
 
     function seed() {
-      const target = Math.max(26, Math.min(88, Math.round((w * h) / 20000)));
+      const target = Math.max(20, Math.min(64, Math.round((w * h) / 26000)));
       particles = Array.from({ length: target }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -108,9 +110,14 @@
       }));
     }
 
-    function draw() {
+    function draw(now) {
+      raf = requestAnimationFrame(draw);
+      if (now - lastFrame < FRAME_MS) return;
+      lastFrame = now;
+
       ctx.clearRect(0, 0, w, h);
       const cols = colors();
+      const matrix = isMatrix();
       const linkDist = 136;
 
       for (let i = 0; i < particles.length; i++) {
@@ -137,7 +144,8 @@
         const color = cols[p.c % cols.length];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = hexA(color, p.a);
+        ctx.fillStyle = color;
+        ctx.globalAlpha = p.a;
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -146,26 +154,26 @@
           const dy = p.y - q.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < linkDist) {
-            const alpha = (1 - dist / linkDist) * (isMatrix() ? 0.22 : 0.1);
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = hexA(color, alpha);
+            ctx.strokeStyle = color;
+            ctx.globalAlpha = (1 - dist / linkDist) * (matrix ? 0.22 : 0.1);
             ctx.lineWidth = 0.7;
             ctx.stroke();
           }
         }
       }
 
+      ctx.globalAlpha = 1;
+
       if (mouse.active) {
         const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 220);
-        g.addColorStop(0, isMatrix() ? "rgba(63,185,80,0.06)" : "rgba(34,211,238,0.05)");
+        g.addColorStop(0, matrix ? "rgba(63,185,80,0.06)" : "rgba(34,211,238,0.05)");
         g.addColorStop(1, "rgba(0,0,0,0)");
         ctx.fillStyle = g;
         ctx.fillRect(mouse.x - 220, mouse.y - 220, 440, 440);
       }
-
-      raf = requestAnimationFrame(draw);
     }
 
     function hexA(hex, alpha) {
@@ -175,6 +183,7 @@
 
     function start() {
       if (reduced) {
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
         ctx.clearRect(0, 0, w, h);
         const cols = colors();
         particles.forEach((p, i) => {
@@ -196,7 +205,8 @@
         });
         return;
       }
-      stop();
+      if (raf) return;
+      lastFrame = 0;
       raf = requestAnimationFrame(draw);
     }
 
@@ -225,6 +235,10 @@
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) stop();
       else if (!reduced) start();
+    });
+    window.addEventListener("blur", stop);
+    window.addEventListener("focus", () => {
+      if (!document.hidden && !reduced) start();
     });
 
     window.addEventListener("themechange", () => {

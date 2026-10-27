@@ -7,6 +7,7 @@
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
+import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
@@ -289,15 +290,43 @@ function serveStatic(req, res, pathname) {
   const ext = path.extname(file).toLowerCase();
   const type = MIME[ext] || "application/octet-stream";
   const cache = ext === ".html" ? "no-cache" : "public, max-age=3600";
+  const etag = `W/"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
 
-  res.writeHead(200, {
+  const headers = {
     "Content-Type": type,
-    "Content-Length": stat.size,
     "Cache-Control": cache,
+    "ETag": etag,
+    "Last-Modified": stat.mtime.toUTCString(),
+    "Vary": "Accept-Encoding",
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin"
-  });
+  };
 
+  /* 304 — evita rebaixar CSS/JS a cada visita */
+  const inm = req.headers["if-none-match"];
+  const ims = req.headers["if-modified-since"];
+  const notModified = inm
+    ? inm.split(",").map((s) => s.trim()).includes(etag) || inm.trim() === "*"
+    : ims && Date.parse(ims) >= Math.floor(stat.mtimeMs / 1000) * 1000;
+  if (notModified) {
+    delete headers["Content-Type"];
+    res.writeHead(304, headers);
+    res.end();
+    return;
+  }
+
+  /* gzip para texto — CSS de 62 KB cai para ~12 KB */
+  const compressible = /^(text\/|application\/(json|javascript|xml)|image\/svg)/.test(type);
+  const gzip = compressible && stat.size > 1024 && /\bgzip\b/.test(req.headers["accept-encoding"] || "");
+
+  if (gzip) {
+    res.writeHead(200, { ...headers, "Content-Encoding": "gzip" });
+    if (req.method === "HEAD") { res.end(); return; }
+    fs.createReadStream(file).pipe(zlib.createGzip({ level: 6 })).pipe(res);
+    return;
+  }
+
+  res.writeHead(200, { ...headers, "Content-Length": stat.size });
   if (req.method === "HEAD") { res.end(); return; }
   fs.createReadStream(file).pipe(res);
 }

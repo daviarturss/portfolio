@@ -256,8 +256,13 @@ Antes de publicar, troque a imagem Open Graph por uma versão definitiva e confi
 - `aria-live` na conversa do assistente para leitores de tela.
 - Respeito a `prefers-reduced-motion`: animações são desligadas e o fundo vira um quadro estático.
 - Contraste pensado para os dois temas; o chat mantém área de toque confortável no mobile.
-- Sem bibliotecas no front, sem fontes bloqueando a renderização crítica além do necessário, imagens com `loading="lazy"`.
-- O Canvas reduz a densidade de partículas em telas pequenas e pausa quando a aba está oculta.
+- Sem bibliotecas no front, imagens com `loading="lazy"` e fontes carregadas de forma assíncrona (`media="print"` + `onload`), sem bloquear o primeiro paint.
+- O Canvas limita o `devicePixelRatio` a 1.5, desenha a **30 fps** (as partículas são lentas; não precisa de 60), usa menos partículas em telas pequenas e **pausa quando a aba ou a janela perde o foco**.
+- Animações de destaque usam `transform`/`opacity` (compostas pela GPU). O pulso de disponibilidade virou anel animado em vez de `box-shadow`, e o gradiente dos títulos é estático — os dois custavam repaint contínuo.
+- Os desfoques pesados saíram de cards, header e botões; sobraram apenas no painel do chat e na paleta de comandos, onde o efeito é realmente visível. O fundo aurora passou a usar só gradientes suaves, sem `filter: blur()` em três camadas grandes.
+- Servidor com **gzip** (CSS de ~64 KB cai para ~13 KB, JS de ~37 KB para ~10 KB), `ETag`/`Last-Modified` com resposta `304` e cache de uma hora para assets — curto o bastante para eu não publicar uma versão antiga por engano.
+
+Números do último teste local (1600×900, Edge headless): o site parado caiu de ~21% de CPU do renderer + ~21% da GPU para ~14% + ~10%; em rede 4G simulada, o total inicial caiu de ~149 KB para ~41 KB e o primeiro paint de ~2,7 s para ~2,2 s. Em máquina com GPU integrada ou muitos apps abertos, a diferença tende a ser mais perceptível que esses números.
 
 ---
 
