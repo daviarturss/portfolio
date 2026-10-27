@@ -422,7 +422,7 @@
               <img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title)}" loading="lazy" width="1180" height="820" />
             </div>`;
         } else {
-          const glyph = p.id === "portfolio" ? "&lt;/&gt;" : "⚛";
+          const glyph = p.id === "portfolio" ? "&lt;/&gt;" : "R + N";
           const caption = p.id === "portfolio" ? "HTML · CSS · JS" : "REACT · NODE";
           visual = `<div class="project-art" aria-hidden="true">
               <span>${glyph}</span>

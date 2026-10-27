@@ -23,7 +23,7 @@ window.PORTFOLIO = (function () {
     phoneRaw: "5581992192077",
     github: "https://github.com/daviarturss",
     linkedin: "https://www.linkedin.com/in/daviartur/",
-    availability: "Aberto a estágio e posições júnior em TI",
+    availability: "Em busca da primeira oportunidade no mercado de TI",
     education: "Análise e Desenvolvimento de Sistemas — Estácio (cursando)",
     english: "Intermediário",
     resumes: [
@@ -105,13 +105,13 @@ window.PORTFOLIO = (function () {
       note: "DOM, eventos, fetch e Canvas" },
     { name: "Python", cat: "back", level: "Intermediário", pct: 65, icon: "Py", color: "#3776AB",
       note: "Scripts, lógica e automação" },
-    { name: "React", cat: "front", level: "Em estudo", pct: 35, icon: "⚛", color: "#61DAFB",
+    { name: "React", cat: "front", level: "Em estudo", pct: 35, icon: "R", color: "#61DAFB",
       note: "Componentes e estado" },
-    { name: "Node.js", cat: "back", level: "Em estudo", pct: 35, icon: "⬢", color: "#3C873A",
+    { name: "Node.js", cat: "back", level: "Em estudo", pct: 35, icon: "N", color: "#3C873A",
       note: "APIs e servidores" },
     { name: "Banco de dados", cat: "back", level: "Em estudo", pct: 30, icon: "DB", color: "#A371F7",
       note: "Modelagem e consultas" },
-    { name: "Git & GitHub", cat: "tools", level: "Intermediário", pct: 70, icon: "⑂", color: "#F05032",
+    { name: "Git & GitHub", cat: "tools", level: "Intermediário", pct: 70, icon: "Git", color: "#F05032",
       note: "Versionamento e colaboração" },
     { name: "IA & automação", cat: "tools", level: "Intermediário", pct: 60, icon: "✦", color: "#22D3EE",
       note: "Pesquisa, produtividade e scripts" },
@@ -191,7 +191,9 @@ window.PORTFOLIO = (function () {
       ],
       status: "Em andamento",
       year: "2026",
-      accent: "purple"
+      accent: "purple",
+      link: "https://github.com/daviarturss",
+      linkLabel: "Acompanhar no GitHub"
     }
   ];
 
@@ -379,7 +381,7 @@ window.PORTFOLIO = (function () {
       patterns: [/contato|falar com|email|e-mail|telefone|whatsapp|linkedin|github/i],
       keywords: ["contato", "email", "e-mail", "telefone", "whatsapp", "linkedin", "github", "falar com"],
       reply:
-        "Você pode falar direto com o Davi:\n\n✉️ **Daviarturss27@gmail.com**\n📱 **(81) 99219-2077**\n💼 [LinkedIn](https://www.linkedin.com/in/daviartur/)\n🐙 [GitHub](https://github.com/daviarturss)\n\nEle está no Recife e aberto a conversas sobre estágio ou posições júnior.",
+        "Você pode falar direto com o Davi:\n\n✉️ **Daviarturss27@gmail.com**\n📱 **(81) 99219-2077**\n💼 [LinkedIn](https://www.linkedin.com/in/daviartur/)\n🐙 [GitHub](https://github.com/daviarturss)\n\nEle está no Recife e aberto a conversas sobre a primeira oportunidade no mercado de TI.",
       suggestions: ["Ele está disponível?", "Baixar o currículo", "Onde ele mora?"]
     },
     {
@@ -428,10 +430,10 @@ window.PORTFOLIO = (function () {
     },
     {
       id: "availability",
-      patterns: [/disponivel|disponibilidade|oportunidade|vaga|estagio|junior|contratar|trabalhar/i],
+      patterns: [/disponivel|disponibilidade|oportunidade|vaga|estagio|junior|contrat|trabalhar/i],
       keywords: ["disponivel", "disponibilidade", "oportunidade", "vaga", "estagio", "junior", "contratar", "trabalhar"],
       reply:
-        "**Sim, ele está disponível!** 🚀 Busca a primeira oportunidade em TI — **estágio ou júnior**, em **desenvolvimento** ou **suporte/help desk**.\n\nO melhor caminho é chamar no e-mail **Daviarturss27@gmail.com** ou no LinkedIn.",
+        "**Sim, ele está disponível!** 🚀 Busca a primeira oportunidade no mercado de TI, em **desenvolvimento** ou **suporte/help desk**.\n\nO melhor caminho é chamar no e-mail **Daviarturss27@gmail.com** ou no LinkedIn.",
       suggestions: ["Por que contratar o Davi?", "Como entrar em contato?", "Baixar o currículo"]
     },
     {
@@ -471,7 +473,7 @@ window.PORTFOLIO = (function () {
       patterns: [/objetivo|futuro|carreira|onde quer chegar|plano/i],
       keywords: ["objetivo", "futuro", "carreira", "plano", "quer chegar"],
       reply:
-        "O objetivo é entrar na área de TI e crescer como **desenvolvedor**, unindo front-end, automação e um bom atendimento. No curto prazo: **estágio ou júnior**, aprender em contexto real e transformar estudo em entrega.",
+        "O objetivo é entrar na área de TI e crescer como **desenvolvedor**, unindo front-end, automação e um bom atendimento. No curto prazo: **ingressar no mercado de TI**, aprender em contexto real e transformar estudo em entrega.",
       suggestions: ["Ele está disponível?", "O que ele está estudando?", "Ver os projetos"]
     },
     {
@@ -562,7 +564,7 @@ window.PORTFOLIO = (function () {
       "- Projetos: HwMon (monitor de sensores Windows em C#/.NET 10, WPF + CLI, 307 sensores, alertas, CSV); este portfólio (HTML/CSS/JS puro, Canvas, chatbot); laboratório React + Node.",
       "- Soft skills: proatividade, comunicação, organização, trabalho em equipe, aprendizado rápido, resolução de problemas.",
       "- Idiomas: português nativo; inglês intermediário.",
-      "- Disponibilidade: estágio ou júnior em TI (desenvolvimento ou suporte/help desk), presencial no Recife ou remoto.",
+      "- Disponibilidade: em busca da primeira oportunidade no mercado de TI (desenvolvimento ou suporte/help desk), presencial no Recife ou remoto.",
       "- Contato: Daviarturss27@gmail.com | (81) 99219-2077 | linkedin.com/in/daviartur | github.com/daviarturss.",
       "- Currículos: assets/cv/Curriculo_Davi_Suporte_TI.pdf e assets/cv/Curriculo_Davi_Administrativo.pdf.",
       "- Idade e pretensão salarial não constam no currículo.",

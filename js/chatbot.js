@@ -166,9 +166,9 @@
       modeDot.classList.remove("is-offline");
       modeDot.title = "Respostas geradas por IA (Ollama)";
     } else if (kind === "offline") {
-      modeEl.textContent = "modo local · IA indisponível";
+      modeEl.textContent = "cérebro local";
       modeDot.classList.add("is-offline");
-      modeDot.title = "Usando o cérebro local do assistente";
+      modeDot.title = "IA indisponível agora — respondendo com a base local";
     } else {
       modeEl.textContent = "cérebro local";
       modeDot.classList.add("is-offline");
@@ -228,7 +228,7 @@
       if (info && info.ai) {
         aiReady = true;
         aiModel = info.model || "";
-        setMode("ai");
+        setMode("local");
       } else {
         setMode("local");
       }
@@ -329,6 +329,7 @@
           bubble.innerHTML = md(full);
           history.push({ role: "assistant", content: full });
           got = true;
+          setMode("ai");
         } catch (err) {
           console.warn("[chat] IA indisponível:", err.message);
           aiFailed = true;
