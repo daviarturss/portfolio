@@ -14,8 +14,8 @@ window.PORTFOLIO = (function () {
     name: "Davi Artur Silva Sousa",
     shortName: "Davi Artur",
     initials: "DA",
-    role: "Desenvolvedor em formação & Suporte T.I.",
-    tagline: "Transformo curiosidade em código — do front-end ao suporte.",
+    role: "Profissional de TI em formação",
+    tagline: "Transformo curiosidade em soluções — da programação ao atendimento.",
     location: "Torre, Recife — PE",
     locationShort: "Recife · PE",
     email: "Daviarturss27@gmail.com",
@@ -31,7 +31,7 @@ window.PORTFOLIO = (function () {
         label: "Currículo — Suporte T.I.",
         short: "Suporte T.I.",
         file: "assets/cv/Curriculo_Davi_Suporte_TI.pdf",
-        desc: "Foco em suporte técnico, help desk e rotinas de TI."
+        desc: "Foco em suporte técnico e rotinas de TI."
       },
       {
         label: "Currículo — Administrativo",
@@ -45,9 +45,9 @@ window.PORTFOLIO = (function () {
       { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/daviartur/", handle: "in/daviartur" }
     ],
     bio: [
-      "Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em desenvolvimento web — HTML, CSS e JavaScript — além de Python, Git e ferramentas de inteligência artificial.",
+      "Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em programação — HTML, CSS, JavaScript e Python — além de Git, banco de dados e ferramentas de inteligência artificial.",
       "Minha trajetória passa pela área administrativa, onde aprendi a lidar com pessoas, sistemas, prazos e detalhes. Levo essas habilidades para o código: organização, comunicação clara e vontade de resolver o problema de verdade.",
-      "Hoje busco minha primeira oportunidade em TI, no desenvolvimento ou no suporte, para aprender em contexto real e entregar valor desde o primeiro dia."
+      "Hoje busco minha primeira oportunidade em TI para aprender em contexto real e entregar valor desde o primeiro dia, aberto a diferentes frentes da área."
     ],
     pitch:
       "Aprendo rápido, organizo bem e gosto de gente. Se você precisa de alguém que una base técnica, atendimento e vontade de crescer, é comigo."
@@ -66,8 +66,8 @@ window.PORTFOLIO = (function () {
   const highlights = [
     {
       icon: "</>",
-      title: "Front-end em evolução",
-      text: "Interfaces com HTML semântico, CSS moderno, animações e JavaScript puro — sem depender de framework."
+      title: "Programação em evolução",
+      text: "Soluções com HTML semântico, CSS moderno, JavaScript e Python — da interface à automação, sem depender de framework."
     },
     {
       icon: "✦",
@@ -76,7 +76,7 @@ window.PORTFOLIO = (function () {
     },
     {
       icon: "⌘",
-      title: "Suporte e organização",
+      title: "Rotina e organização",
       text: "Vivência com sistemas internos, planilhas, documentação e atendimento ao público."
     },
     {
@@ -309,12 +309,12 @@ window.PORTFOLIO = (function () {
       patterns: [/experiencia|ja trabalhou|trabalho|emprego|curriculo profissional|atuou/i],
       keywords: ["experiencia", "trabalhou", "trabalho", "emprego", "atuou", "consultor", "vendas"],
       reply:
-        "A experiência profissional dele é como **Consultor de Vendas · Administrativo**, entre **out/2025 e mai/2026**. No dia a dia: organização de documentos físicos e digitais, atualização de registros em sistemas e planilhas, suporte à comunicação interna e atendimento ao público.\n\nÉ uma experiência que rendeu **organização, comunicação e familiaridade com sistemas** — coisas que contam muito em suporte T.I.",
+        "A experiência profissional dele é como **Consultor de Vendas · Administrativo**, entre **out/2025 e mai/2026**. No dia a dia: organização de documentos físicos e digitais, atualização de registros em sistemas e planilhas, suporte à comunicação interna e atendimento ao público.\n\nÉ uma experiência que rendeu **organização, comunicação e familiaridade com sistemas** — coisas que contam em qualquer vaga de TI.",
       suggestions: ["Ele já mexeu com suporte?", "Quais são as soft skills?", "Ele está disponível?"]
     },
     {
       id: "skills",
-      patterns: [/o que (ele )?sabe|habilidades|stack|tecnologias|conhecimentos|linguagens|ferramentas/i],
+      patterns: [/o que (ele |voce |vc )?sabe|sabe fazer|habilidades|stack|tecnologias|conhecimentos|linguagens|ferramentas/i],
       keywords: ["habilidades", "stack", "tecnologias", "conhecimentos", "linguagens", "ferramentas", "o que sabe", "sabe fazer"],
       reply:
         "A stack dele hoje:\n\n**Front-end:** HTML, CSS e JavaScript\n**Back-end:** Python (e estudos em Node.js e banco de dados)\n**Ferramentas:** Git, GitHub, VS Code, Excel/Office\n**Extras:** IA generativa, automação e suporte a sistemas\n\nEle tem prática de projeto próprio — o **HwMon**, em C#/.NET — e este portfólio, feito em HTML/CSS/JS puro.",
@@ -430,10 +430,10 @@ window.PORTFOLIO = (function () {
     },
     {
       id: "availability",
-      patterns: [/disponivel|disponibilidade|oportunidade|vaga|estagio|junior|contrat|trabalhar/i],
+      patterns: [/voces contratam|contratacao|contratando|contratado|disponivel|disponibilidade|oportunidade|vaga|estagio|junior|trabalhar/i],
       keywords: ["disponivel", "disponibilidade", "oportunidade", "vaga", "estagio", "junior", "contratar", "trabalhar"],
       reply:
-        "**Sim, ele está disponível!** 🚀 Busca a primeira oportunidade no mercado de TI, em **desenvolvimento** ou **suporte/help desk**.\n\nO melhor caminho é chamar no e-mail **Daviarturss27@gmail.com** ou no LinkedIn.",
+        "**Sim, ele está disponível!** 🚀 Busca a primeira oportunidade no mercado de TI, aberto a diferentes frentes da área.\n\nO melhor caminho é chamar no e-mail **Daviarturss27@gmail.com** ou no LinkedIn.",
       suggestions: ["Por que contratar o Davi?", "Como entrar em contato?", "Baixar o currículo"]
     },
     {
@@ -462,10 +462,10 @@ window.PORTFOLIO = (function () {
     },
     {
       id: "why-hire",
-      patterns: [/por que.*(contratar|escolher|devo)/i, /porque.*contratar/i, /o que (ele )?agrega/i, /diferencial/i],
-      keywords: ["por que contratar", "porque contratar", "escolher", "agrega", "diferencial"],
+      patterns: [/por que.*(contratar|escolher|devo)/i, /porque.*contratar/i, /por que (te )?contratar/i, /o que (ele )?agrega/i, /diferencial/i],
+      keywords: ["por que contratar", "porque contratar", "devo contratar", "escolher", "agrega", "diferencial"],
       reply:
-        "Três motivos bem práticos:\n\n**1. Base técnica + vontade real de aprender** — HTML, CSS, JS, Python, Git e projetos próprios como o HwMon.\n**2. Gente que sabe lidar com gente** — atendimento, comunicação e organização vindos da rotina administrativa.\n**3. Entrega com contexto** — ele entende o problema antes de escrever a solução.\n\nPara uma vaga de entrada, é um pacote difícil de achar.",
+        "Três motivos bem práticos:\n\n**1. Base técnica + vontade real de aprender** — HTML, CSS, JS, Python, Git e projetos próprios como o HwMon.\n**2. Gente que sabe lidar com gente** — atendimento, comunicação e organização vindos da rotina administrativa.\n**3. Entrega com contexto** — ele entende o problema antes de escrever a solução.\n\nÉ um pacote que funciona em diferentes frentes da área de TI.",
       suggestions: ["Ele está disponível?", "Ver os projetos", "Como entrar em contato?"]
     },
     {
@@ -473,7 +473,7 @@ window.PORTFOLIO = (function () {
       patterns: [/objetivo|futuro|carreira|onde quer chegar|plano/i],
       keywords: ["objetivo", "futuro", "carreira", "plano", "quer chegar"],
       reply:
-        "O objetivo é entrar na área de TI e crescer como **desenvolvedor**, unindo front-end, automação e um bom atendimento. No curto prazo: **ingressar no mercado de TI**, aprender em contexto real e transformar estudo em entrega.",
+        "O objetivo é entrar na área de TI e crescer como **profissional de tecnologia**, unindo programação, automação e um bom atendimento. No curto prazo: **ingressar no mercado de TI**, aprender em contexto real e transformar estudo em entrega.",
       suggestions: ["Ele está disponível?", "O que ele está estudando?", "Ver os projetos"]
     },
     {
@@ -489,8 +489,8 @@ window.PORTFOLIO = (function () {
       patterns: [/suporte|help desk|ti|tecnico|manutencao|problema/i],
       keywords: ["suporte", "help desk", "tecnico", "manutencao", "problema", "ti"],
       reply:
-        "Ele tem interesse e base para **Suporte Técnico / Help Desk**: identificação e resolução de problemas, apoio a sistemas e processos, atualização de sistemas internos, planilhas e documentação.\n\nA experiência administrativa ajudou muito no lado de **atendimento e comunicação** — essencial para suporte.",
-      suggestions: ["Ele está disponível?", "Quais são as soft skills?", "Baixar o currículo de suporte"]
+        "Ele tem base para **suporte técnico e resolução de problemas**: identificar falhas, apoiar sistemas e processos, atualizar registros internos, mexer com planilhas e documentação — uma das várias frentes em que pode contribuir.\n\nA experiência administrativa rendeu **atendimento e comunicação**, úteis em qualquer área.",
+      suggestions: ["Ele está disponível?", "Quais são as soft skills?", "Quais são as habilidades?"]
     },
     {
       id: "tools",
@@ -564,7 +564,7 @@ window.PORTFOLIO = (function () {
       "- Projetos: HwMon (monitor de sensores Windows em C#/.NET 10, WPF + CLI, 307 sensores, alertas, CSV); este portfólio (HTML/CSS/JS puro, Canvas, chatbot); laboratório React + Node.",
       "- Soft skills: proatividade, comunicação, organização, trabalho em equipe, aprendizado rápido, resolução de problemas.",
       "- Idiomas: português nativo; inglês intermediário.",
-      "- Disponibilidade: em busca da primeira oportunidade no mercado de TI (desenvolvimento ou suporte/help desk), presencial no Recife ou remoto.",
+      "- Disponibilidade: em busca da primeira oportunidade no mercado de TI, aberto a diferentes frentes; presencial no Recife ou remoto.",
       "- Contato: Daviarturss27@gmail.com | (81) 99219-2077 | linkedin.com/in/daviartur | github.com/daviarturss.",
       "- Currículos: assets/cv/Curriculo_Davi_Suporte_TI.pdf e assets/cv/Curriculo_Davi_Administrativo.pdf.",
       "- Idade e pretensão salarial não constam no currículo.",

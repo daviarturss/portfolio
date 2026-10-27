@@ -484,7 +484,7 @@
       `<span class="tok-com">// quem está por trás do código</span>`,
       `<span class="tok-key">const</span> <span class="tok-prop">davi</span> <span class="tok-punc">=</span> <span class="tok-punc">{</span>`,
       `  <span class="tok-prop">nome</span><span class="tok-punc">:</span> <span class="tok-str">"Davi Artur Silva Sousa"</span><span class="tok-punc">,</span>`,
-      `  <span class="tok-prop">cargo</span><span class="tok-punc">:</span> <span class="tok-str">"Desenvolvedor em formação"</span><span class="tok-punc">,</span>`,
+      `  <span class="tok-prop">cargo</span><span class="tok-punc">:</span> <span class="tok-str">"TI em formação"</span><span class="tok-punc">,</span>`,
       `  <span class="tok-prop">base</span><span class="tok-punc">:</span> <span class="tok-str">"Recife · PE"</span><span class="tok-punc">,</span>`,
       `  <span class="tok-prop">formacao</span><span class="tok-punc">:</span> <span class="tok-str">"ADS · Estácio"</span><span class="tok-punc">,</span>`,
       `  <span class="tok-prop">stack</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"HTML"</span><span class="tok-punc">,</span> <span class="tok-str">"CSS"</span><span class="tok-punc">,</span> <span class="tok-str">"JS"</span><span class="tok-punc">,</span> <span class="tok-str">"Python"</span><span class="tok-punc">],</span>`,
@@ -499,7 +499,8 @@
       `  <span class="tok-prop">"frontend"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"HTML5"</span><span class="tok-punc">,</span> <span class="tok-str">"CSS3"</span><span class="tok-punc">,</span> <span class="tok-str">"JavaScript"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">"backend"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"Python"</span><span class="tok-punc">,</span> <span class="tok-str">"Node.js (estudos)"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">"tools"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"Git"</span><span class="tok-punc">,</span> <span class="tok-str">"GitHub"</span><span class="tok-punc">,</span> <span class="tok-str">"VS Code"</span><span class="tok-punc">,</span> <span class="tok-str">"Excel"</span><span class="tok-punc">],</span>`,
-      `  <span class="tok-prop">"extras"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"IA generativa"</span><span class="tok-punc">,</span> <span class="tok-str">"Automação"</span><span class="tok-punc">,</span> <span class="tok-str">"Suporte T.I."</span><span class="tok-punc">],</span>`,
+      `  <span class="tok-prop">"extras"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"IA generativa"</span><span class="tok-punc">,</span> <span class="tok-str">"Automação"</span><span class="tok-punc">,</span>`,
+      `             <span class="tok-str">"Resolução de problemas"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">"idiomas"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span>`,
       `    <span class="tok-prop">"portugues"</span><span class="tok-punc">:</span> <span class="tok-str">"nativo"</span><span class="tok-punc">,</span>`,
       `    <span class="tok-prop">"ingles"</span><span class="tok-punc">:</span> <span class="tok-str">"intermediário"</span>`,
@@ -511,9 +512,9 @@
     goal: [
       `<span class="tok-key"># objetivo</span>`,
       ``,
-      `Entrar na área de TI para crescer como`,
-      `desenvolvedor — unindo front-end, automação`,
-      `e um bom atendimento.`,
+      `Entrar na área de TI e crescer profissionalmente,`,
+      `unindo programação, automação, IA e um`,
+      `bom atendimento.`,
       ``,
       `<span class="tok-tag">- [x]</span> Base em HTML, CSS e JS`,
       `<span class="tok-tag">- [x]</span> Projetos próprios no GitHub`,
@@ -553,10 +554,10 @@
     const el = $("#typed-role");
     if (!el) return;
     const roles = [
-      "Desenvolvedor web em formação",
-      "Front-end com HTML, CSS e JS",
+      "Profissional de TI em formação",
+      "Programação com HTML, CSS e JS",
       "Python & automação",
-      "Suporte técnico e Help Desk",
+      "Tecnologia e resolução de problemas",
       "IA aplicada ao dia a dia"
     ];
     if (reduced) { el.textContent = roles[0]; return; }

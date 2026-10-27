@@ -4,7 +4,7 @@ Meu portfólio pessoal: uma landing page feita do zero com **HTML, CSS e JavaScr
 
 Eu construí este site como parte da minha transição para a área de TI. Ele é, ao mesmo tempo, minha vitrine profissional e meu laboratório de estudo: cada seção foi uma oportunidade de praticar layout responsivo, acessibilidade, manipulação de DOM, Canvas e integração com uma API de IA.
 
-> **Status:** disponível para ingressar no mercado de TI, em desenvolvimento ou suporte/help desk.
+> **Status:** disponível para ingressar no mercado de TI, aberto a diferentes frentes da área.
 
 ---
 
@@ -265,7 +265,7 @@ Antes de publicar, troque a imagem Open Graph por uma versão definitiva e confi
 
 Mantenho duas versões, com focos diferentes:
 
-- **Suporte T.I.** — help desk, resolução de problemas, rotinas de TI.
+- **Suporte T.I.** — suporte técnico, resolução de problemas e rotinas de TI.
 - **Administrativo** — atendimento, organização, planilhas e sistemas internos.
 
 Os textos do site combinam os dois: contato e objetivo vêm da versão de suporte; a experiência vem da versão administrativa. Dois pontos que ajustei de propósito:
