@@ -220,6 +220,8 @@ GET http://localhost:3000/api/health
 
 A resposta indica se a IA está ativa, qual provedor e modelo estão em uso e, se houver problema, o motivo. Há cache de 20 segundos e limite de 20 mensagens por minuto por IP.
 
+> **Atenção:** o health check consulta apenas a lista de modelos (`/api/tags`). Ele pode dizer que a IA está disponível e ainda assim a geração falhar por falta de créditos (`402`). Por isso o chat só exibe "IA · modelo" **depois** da primeira resposta bem-sucedida; até lá, mostra "cérebro local".
+
 **Se a IA não responder,** nesta ordem: confira `OLLAMA_HOST`, a validade da chave, se o modelo existe na conta (`/api/tags`) e se há créditos. O chat mostra "cérebro local" no cabeçalho quando está no modo offline.
 
 ---
