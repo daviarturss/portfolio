@@ -456,6 +456,9 @@
         const statusClass = /andamento/i.test(p.status) ? "is-progress" : "";
         const tags = p.tags.map((t) => `<span>${esc(t)}</span>`).join("");
         const bullets = (p.bullets || []).map((b) => `<li>${esc(b)}</li>`).join("");
+        const aiNote = p.aiNote
+          ? `<p class="project-ai">${icon("sparkles")}<span>${esc(p.aiNote)}</span></p>`
+          : "";
         const metrics = p.metrics
           .map((m) => `<div><b>${esc(m.value)}</b><small>${esc(m.label)}</small></div>`)
           .join("");
@@ -490,6 +493,7 @@
             <h3>${esc(p.title)}</h3>
             <p class="project-subtitle">${esc(p.subtitle)}</p>
             <p class="project-desc">${esc(p.description)}</p>
+            ${aiNote}
             ${bullets ? `<ul class="project-bullets">${bullets}</ul>` : ""}
             <div class="project-tags">${tags}</div>
             ${metrics ? `<div class="project-metrics">${metrics}</div>` : ""}

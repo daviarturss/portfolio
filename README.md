@@ -31,9 +31,13 @@ Eu construí este site como parte da minha transição para a área de TI. Ele �
 
 O site apresenta quatro trabalhos. Dois deles são aplicações desktop em C#/.NET que desenvolvi para estudar, na prática, como o software conversa com o hardware.
 
+**Transparência:** os quatro foram construídos por mim, com **IA como ferramenta de estudo** — para pesquisar APIs, revisar trechos, explicar erros e discutir alternativas. Não apresento nenhum deles como trabalho 100% solo, nem como algo gerado automaticamente: as decisões, a integração e os testes passaram por mim.
+
 ### PcSpec
 
 Clone funcional do CPU-Z escrito do zero em **C#/.NET 10**, usando apenas APIs públicas do Windows: `CPUID`, SMBIOS, WMI, registro e topologia de processadores. Tem app WPF com sete abas (Sistema, CPU, Placa-mãe, Memória, Gráficos, Benchmark e Relatório), uma CLI completa (`info`, `cpu`, `memory`, `bench`, `report`, `json`, `smbios`) e benchmark próprio com quatro cargas em 1 e N threads. Gera relatórios em TXT, HTML autocontido e JSON. Não instala driver de kernel, não lê a memória de outro processo e não faz acesso à rede.
+
+Foi meu principal projeto de aprendizado em **C#/.NET**: usei IA para estudar as APIs do Windows, revisar trechos e destravar erros, e testei cada parte rodando o app no Windows.
 
 O projeto nasceu de um estudo de **engenharia reversa do CPU-Z 3.0.1**, no qual usei duas ferramentas de terceiros — **REA (Reverse Engineer Anything)** para a análise assistida do binário e **Ghidra 12.2** para o descompilado. O código do PcSpec é independente: a engenharia reversa serviu para entender *o que* o programa original lia e *como* organizava a interface, não para reaproveitar implementação. O dossiê dessa análise está fora deste repositório.
 
@@ -42,6 +46,8 @@ O projeto nasceu de um estudo de **engenharia reversa do CPU-Z 3.0.1**, no qual 
 ### HwMon
 
 Monitor de sensores para Windows, também em **C#/.NET 10**, inspirado no HWiNFO64. Lê CPU, GPU, placa-mãe, memória, discos e rede via LibreHardwareMonitorLib — **307 sensores em 58 hardwares** — com filtros, estatísticas em tempo real, alertas por limite e exportação CSV. A CLI cobre `list`, `watch`, `export` e `providers`.
+
+Segundo projeto grande em C#/.NET e WPF, também com IA como apoio de estudo e revisão de código.
 
 → [github.com/daviarturss/hwmon](https://github.com/daviarturss/hwmon)
 

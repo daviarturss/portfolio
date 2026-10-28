@@ -125,7 +125,9 @@ window.PORTFOLIO = (function () {
       title: "PcSpec",
       subtitle: "Especificações do PC — clone do CPU-Z em C#/.NET",
       description:
-        "Clone funcional do CPU-Z escrito do zero em C#/.NET 10, usando só APIs públicas do Windows: CPUID, SMBIOS, WMI, registro e topologia. Tem app WPF com 7 abas, CLI completa, benchmark próprio single/multi-thread e relatórios em TXT, HTML e JSON. Nasceu de um estudo de engenharia reversa do CPU-Z 3.0.1 feito com REA + Ghidra — sem reutilizar código do original.",
+        "Clone funcional do CPU-Z escrito do zero em C#/.NET 10, usando só APIs públicas do Windows: CPUID, SMBIOS, WMI, registro e topologia. Tem app WPF com 7 abas, CLI completa, benchmark próprio single/multi-thread e relatórios em TXT, HTML e JSON. Foi meu principal projeto de aprendizado em C#/.NET e nasceu de um estudo de engenharia reversa do CPU-Z 3.0.1 feito com REA + Ghidra — sem reutilizar código do original.",
+      aiNote:
+        "Feito com apoio de IA, não sozinho: usei o modelo para estudar as APIs do Windows, revisar trechos e explicar erros enquanto aprendia C#/.NET. A estrutura, a integração e os testes passaram por mim.",
       bullets: [
         "7 abas: Sistema, CPU, Placa-mãe, Memória, Gráficos, Benchmark e Relatório",
         "Camada Core compartilhada entre o app WPF e a CLI",
@@ -154,6 +156,8 @@ window.PORTFOLIO = (function () {
       subtitle: "Monitor de sensores para Windows",
       description:
         "Um clone funcional do monitoramento do HWiNFO64, escrito do zero em C#/.NET 10. O app WPF lê CPU, GPU, placa-mãe, memória, discos e rede, com filtros, estatísticas em tempo real, alertas por limite e exportação CSV. A CLI cobre list, watch, export e providers.",
+      aiNote:
+        "Segundo projeto grande em C#/.NET, também com apoio de IA: usei o modelo para entender o WPF, a API de sensores e revisar código. As decisões de arquitetura e os testes foram meus.",
       bullets: [
         "307 sensores coletados em 58 hardwares",
         "Arquitetura em 3 camadas: App WPF, Core e CLI",
@@ -178,6 +182,8 @@ window.PORTFOLIO = (function () {
       subtitle: "Landing page + assistente com IA",
       description:
         "Site feito com HTML, CSS e JavaScript puros: fundo em Canvas, microinterações, command palette e um assistente que responde sobre mim usando um cérebro local — com opção de IA via Ollama.",
+      aiNote:
+        "Escrito por mim em HTML, CSS e JavaScript, com IA como apoio para revisar layout, acessibilidade e desempenho — não para gerar o projeto inteiro.",
       bullets: [
         "Zero frameworks e zero build",
         "Fundo animado + acessibilidade e prefers-reduced-motion",
@@ -202,6 +208,8 @@ window.PORTFOLIO = (function () {
       subtitle: "Estudos aplicados",
       description:
         "Experimentos para transformar estudo em prática: componentes, rotas, consumo de API e um backend simples com Node.js. Sem pressa, sem atalho — cada experimento vira aprendizado.",
+      aiNote:
+        "Estudos com IA como tutora: ela explica conceitos e revisa exercícios, mas o código é escrito e testado por mim.",
       bullets: [
         "Componentização e estado no React",
         "APIs REST com Node.js",
@@ -373,7 +381,7 @@ window.PORTFOLIO = (function () {
       patterns: [/projetos|portfolio|portifolio|o que (ele )?construiu|github.*projeto/i],
       keywords: ["projetos", "portfolio", "portifolio", "construiu", "desenvolveu"],
       reply:
-        "Os principais projetos:\n\n**1. PcSpec** — clone funcional do CPU-Z em C#/.NET 10, com app WPF de 7 abas, CLI, benchmark próprio e relatórios TXT/HTML/JSON.\n**2. HwMon** — monitor de sensores para Windows em C#/.NET 10, com app WPF, CLI, 307 sensores, alertas e CSV.\n**3. Este portfólio** — HTML/CSS/JS puros, Canvas, command palette e chatbot.\n**4. Laboratório React + Node** — estudos aplicados em componentes, APIs e banco de dados.\n\nQuer detalhes de qual?",
+        "Os principais projetos:\n\n**1. PcSpec** — clone funcional do CPU-Z em C#/.NET 10, com app WPF de 7 abas, CLI, benchmark próprio e relatórios TXT/HTML/JSON.\n**2. HwMon** — monitor de sensores para Windows em C#/.NET 10, com app WPF, CLI, 307 sensores, alertas e CSV.\n**3. Este portfólio** — HTML/CSS/JS puros, Canvas, command palette e chatbot.\n**4. Laboratório React + Node** — estudos aplicados em componentes, APIs e banco de dados.\n\nEm todos ele usou **IA como apoio de estudo** (pesquisa, revisão e depuração) — não esconde isso. Quer detalhes de qual?",
       suggestions: ["Me fala mais do PcSpec", "Me fala mais do HwMon", "Como foi feito este site?"]
     },
     {
@@ -381,7 +389,7 @@ window.PORTFOLIO = (function () {
       patterns: [/pcspec|pc spec|cpu.?z|especificac|smbios|benchmark|ghidra|rea-agents|rea \+ ghidra|engenharia reversa/i],
       keywords: ["pcspec", "cpu-z", "cpuz", "especificacoes", "smbios", "benchmark", "ghidra", "engenharia reversa", "ddr"],
       reply:
-        "O **PcSpec** é o mais recente: um clone funcional do **CPU-Z** escrito do zero em **C#/.NET 10**, só com APIs públicas do Windows (CPUID, SMBIOS, WMI e registro).\n\n• App **WPF** com 7 abas e chips de resumo\n• **CLI** com `cpu`, `memory`, `bench`, `report`, `json`\n• **Benchmark** próprio: inteiro, ponto flutuante, memória e SHA-256\n• Relatórios em **TXT, HTML e JSON**, tudo local e sem driver de kernel\n\nA ideia surgiu de um estudo de **engenharia reversa do CPU-Z 3.0.1** feito com **REA + Ghidra**, mas o código é independente. Está no GitHub.",
+        "O **PcSpec** é o mais recente: um clone funcional do **CPU-Z** escrito do zero em **C#/.NET 10**, só com APIs públicas do Windows (CPUID, SMBIOS, WMI e registro).\n\n• App **WPF** com 7 abas e chips de resumo\n• **CLI** com `cpu`, `memory`, `bench`, `report`, `json`\n• **Benchmark** próprio: inteiro, ponto flutuante, memória e SHA-256\n• Relatórios em **TXT, HTML e JSON**, tudo local e sem driver de kernel\n\nFoi o principal projeto de aprendizado dele em **C#/.NET**, com **IA como apoio** para estudar APIs e revisar código — não foi feito 100% sozinho. A ideia surgiu de um estudo de **engenharia reversa do CPU-Z 3.0.1** feito com **REA + Ghidra**, mas o código é independente. Está no GitHub.",
       suggestions: ["Ver o GitHub dele", "Me fala mais do HwMon", "Quais outros projetos?"]
     },
     {
@@ -389,7 +397,7 @@ window.PORTFOLIO = (function () {
       patterns: [/hwmon|monitor de sensores|hwinfo|hardware/i],
       keywords: ["hwmon", "hwinfo", "monitor de sensores", "sensores", "hardware", "c#", "dotnet", "wpf"],
       reply:
-        "O **HwMon** é um monitor de sensores para Windows escrito em **C#/.NET 10** — um clone funcional do HWiNFO64, sem usar código do original.\n\n• **307 sensores** em **58 hardwares** (CPU, GPU, placa-mãe, RAM, discos, rede)\n• App **WPF** com filtro, pausa, estatísticas e alertas\n• **CLI** com `list`, `watch`, `export` e `providers`\n• Exportação **CSV** e arquitetura em 3 camadas\n\nEstá no GitHub do Davi.",
+        "O **HwMon** é um monitor de sensores para Windows escrito em **C#/.NET 10** — um clone funcional do HWiNFO64, sem usar código do original.\n\n• **307 sensores** em **58 hardwares** (CPU, GPU, placa-mãe, RAM, discos, rede)\n• App **WPF** com filtro, pausa, estatísticas e alertas\n• **CLI** com `list`, `watch`, `export` e `providers`\n• Exportação **CSV** e arquitetura em 3 camadas\n\nTambém foi um projeto de aprendizado, com **IA como apoio** para entender WPF e revisar código. Está no GitHub do Davi.",
       suggestions: ["Ver o GitHub dele", "Quais outros projetos?", "Ele sabe C#?"]
     },
     {
@@ -602,6 +610,7 @@ window.PORTFOLIO = (function () {
       "- Experiência: Consultor de Vendas/Administrativo de out/2025 a mai/2026 — documentos, sistemas internos, planilhas, atendimento e comunicação interna.",
       "- Stack: HTML, CSS, JavaScript, Python, C#/.NET (WPF e CLI). Git/GitHub. Estudos em React, Node.js e banco de dados. Excel/Office avançado.",
       "- Projetos: PcSpec (clone do CPU-Z em C#/.NET 10: app WPF com 7 abas, CLI, benchmark single/multi-thread e relatórios TXT/HTML/JSON; nasceu de um estudo de engenharia reversa do CPU-Z 3.0.1 feito com REA + Ghidra); HwMon (monitor de sensores Windows em C#/.NET 10, WPF + CLI, 307 sensores, alertas, CSV); este portfólio (HTML/CSS/JS puro, Canvas, chatbot); laboratório React + Node.",
+      "- Transparência sobre IA: os projetos foram feitos por ele com apoio de IA como ferramenta de estudo (pesquisa de APIs, revisão de código e depuração). Nunca diga que ele fez tudo sozinho; também não diga que a IA fez o projeto por ele.",
       "- Soft skills: proatividade, comunicação, organização, trabalho em equipe, aprendizado rápido, resolução de problemas.",
       "- Idiomas: português nativo; inglês intermediário.",
       "- Disponibilidade: em busca da primeira oportunidade no mercado de TI, aberto a diferentes frentes; presencial no Recife ou remoto.",
