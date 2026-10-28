@@ -28,16 +28,10 @@ window.PORTFOLIO = (function () {
     english: "Intermediário",
     resumes: [
       {
-        label: "Currículo — Suporte T.I.",
-        short: "Suporte T.I.",
-        file: "assets/cv/Curriculo_Davi_Suporte_TI.pdf",
-        desc: "Foco em suporte técnico e rotinas de TI."
-      },
-      {
-        label: "Currículo — Administrativo",
-        short: "Administrativo",
-        file: "assets/cv/Curriculo_Davi_Administrativo.pdf",
-        desc: "Foco em rotinas administrativas, atendimento e organização."
+        label: "Currículo — Desenvolvimento de Software",
+        short: "Currículo",
+        file: "assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf",
+        desc: "Versão atualizada: desenvolvimento de software, web e aplicações."
       }
     ],
     socials: [
@@ -45,7 +39,7 @@ window.PORTFOLIO = (function () {
       { id: "linkedin", label: "LinkedIn", url: "https://www.linkedin.com/in/daviartur/", handle: "in/daviartur" }
     ],
     bio: [
-      "Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em programação — HTML, CSS, JavaScript e Python — além de Git, banco de dados e ferramentas de inteligência artificial.",
+      "Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em programação — HTML, CSS, JavaScript e Python na web, e C#/.NET em aplicações desktop — além de Git, banco de dados e ferramentas de inteligência artificial.",
       "Minha trajetória passa pela área administrativa, onde aprendi a lidar com pessoas, sistemas, prazos e detalhes. Levo essas habilidades para o código: organização, comunicação clara e vontade de resolver o problema de verdade.",
       "Hoje busco minha primeira oportunidade em TI para aprender em contexto real e entregar valor desde o primeiro dia, aberto a diferentes frentes da área."
     ],
@@ -59,7 +53,7 @@ window.PORTFOLIO = (function () {
   const stats = [
     { value: 307, suffix: "", label: "sensores monitorados no HwMon" },
     { value: 58, suffix: "", label: "hardwares mapeados no projeto" },
-    { value: 4, suffix: "", label: "linguagens no stack principal" },
+    { value: 5, suffix: "", label: "linguagens no stack principal" },
     { value: 2, suffix: "", label: "idiomas — PT nativo, EN intermediário" }
   ];
 
@@ -67,7 +61,7 @@ window.PORTFOLIO = (function () {
     {
       icon: "</>",
       title: "Programação em evolução",
-      text: "Soluções com HTML semântico, CSS moderno, JavaScript e Python — da interface à automação, sem depender de framework."
+      text: "Soluções com HTML semântico, CSS moderno, JavaScript e Python na web, e C#/.NET em aplicações desktop para Windows — da interface à automação."
     },
     {
       icon: "✦",
@@ -105,6 +99,8 @@ window.PORTFOLIO = (function () {
       note: "DOM, eventos, fetch e Canvas" },
     { name: "Python", cat: "back", level: "Intermediário", pct: 65, icon: "Py", color: "#3776AB",
       note: "Scripts, lógica e automação" },
+    { name: "C# / .NET", cat: "back", level: "Intermediário", pct: 60, icon: "C#", color: "#512BD4",
+      note: "Apps desktop com WPF e CLI" },
     { name: "React", cat: "front", level: "Em estudo", pct: 35, icon: "R", color: "#61DAFB",
       note: "Componentes e estado" },
     { name: "Node.js", cat: "back", level: "Em estudo", pct: 35, icon: "N", color: "#3C873A",
@@ -123,6 +119,34 @@ window.PORTFOLIO = (function () {
      4) PROJETOS
      --------------------------------------------------------- */
   const projects = [
+    {
+      id: "pcspec",
+      featured: true,
+      title: "PcSpec",
+      subtitle: "Especificações do PC — clone do CPU-Z em C#/.NET",
+      description:
+        "Clone funcional do CPU-Z escrito do zero em C#/.NET 10, usando só APIs públicas do Windows: CPUID, SMBIOS, WMI, registro e topologia. Tem app WPF com 7 abas, CLI completa, benchmark próprio single/multi-thread e relatórios em TXT, HTML e JSON. Nasceu de um estudo de engenharia reversa do CPU-Z 3.0.1 feito com REA + Ghidra — sem reutilizar código do original.",
+      bullets: [
+        "7 abas: Sistema, CPU, Placa-mãe, Memória, Gráficos, Benchmark e Relatório",
+        "Camada Core compartilhada entre o app WPF e a CLI",
+        "Benchmark com 4 cargas em 1 e N threads e score geométrico"
+      ],
+      image: "assets/img/pcspec.png",
+      imageAlt: "Interface do PcSpec mostrando chips de resumo de CPU, memória, placa-mãe, gráficos e sistema",
+      imageW: 1200,
+      imageH: 880,
+      tags: ["C#", ".NET 10", "WPF", "CLI", "CPUID", "SMBIOS", "Engenharia reversa"],
+      metrics: [
+        { value: "7", label: "abas no app" },
+        { value: "4", label: "cargas no benchmark" },
+        { value: "0", label: "drivers de kernel" }
+      ],
+      link: "https://github.com/daviarturss/pcspec",
+      linkLabel: "Ver no GitHub",
+      status: "Projeto pessoal",
+      year: "2026",
+      accent: "cyan"
+    },
     {
       id: "hwmon",
       featured: true,
@@ -143,7 +167,7 @@ window.PORTFOLIO = (function () {
         { value: "58", label: "hardwares" },
         { value: "3", label: "camadas" }
       ],
-      link: "https://github.com/daviarturss",
+      link: "https://github.com/daviarturss/hwmon",
       linkLabel: "Ver no GitHub",
       status: "Projeto pessoal",
       year: "2026"
@@ -166,7 +190,7 @@ window.PORTFOLIO = (function () {
         { value: "2", label: "modos de chatbot" },
         { value: "100", label: "responsivo" }
       ],
-      link: "https://github.com/daviarturss",
+      link: "https://github.com/daviarturss/portfolio",
       linkLabel: "Ver no GitHub",
       status: "Projeto pessoal",
       year: "2026",
@@ -333,7 +357,7 @@ window.PORTFOLIO = (function () {
       patterns: [/back.?end|python|node|banco de dados|sql/i],
       keywords: ["backend", "back end", "python", "node", "banco de dados", "sql"],
       reply:
-        "No back-end, a base é **Python** (lógica, scripts e automação). Ele também está estudando **Node.js** e **bancos de dados**, aplicando em pequenos experimentos.\n\nNada de fingir senioridade: é uma base em crescimento, com prática real em projetos.",
+        "No back-end, a base é **Python** (lógica, scripts e automação). Em aplicações desktop, ele trabalha com **C#/.NET 10 e WPF** — é a stack do PcSpec e do HwMon. Também está estudando **Node.js** e **bancos de dados**, aplicando em pequenos experimentos.\n\nNada de fingir senioridade: é uma base em crescimento, com prática real em projetos.",
       suggestions: ["Fale sobre o HwMon", "O que ele está estudando?", "Ele usa IA?"]
     },
     {
@@ -346,11 +370,19 @@ window.PORTFOLIO = (function () {
     },
     {
       id: "projects",
-      patterns: [/projetos|portfolio|portifolio|hwmon|o que (ele )?construiu|github.*projeto/i],
-      keywords: ["projetos", "portfolio", "portifolio", "hwmon", "construiu", "desenvolveu"],
+      patterns: [/projetos|portfolio|portifolio|o que (ele )?construiu|github.*projeto/i],
+      keywords: ["projetos", "portfolio", "portifolio", "construiu", "desenvolveu"],
       reply:
-        "Os principais projetos:\n\n**1. HwMon** — monitor de sensores para Windows em C#/.NET 10, com app WPF, CLI, 307 sensores, alertas e CSV.\n**2. Este portfólio** — HTML/CSS/JS puros, Canvas, command palette e chatbot.\n**3. Laboratório React + Node** — estudos aplicados em componentes, APIs e banco de dados.\n\nQuer detalhes de qual?",
-      suggestions: ["Me fala mais do HwMon", "Como foi feito este site?", "O que ele está estudando?"]
+        "Os principais projetos:\n\n**1. PcSpec** — clone funcional do CPU-Z em C#/.NET 10, com app WPF de 7 abas, CLI, benchmark próprio e relatórios TXT/HTML/JSON.\n**2. HwMon** — monitor de sensores para Windows em C#/.NET 10, com app WPF, CLI, 307 sensores, alertas e CSV.\n**3. Este portfólio** — HTML/CSS/JS puros, Canvas, command palette e chatbot.\n**4. Laboratório React + Node** — estudos aplicados em componentes, APIs e banco de dados.\n\nQuer detalhes de qual?",
+      suggestions: ["Me fala mais do PcSpec", "Me fala mais do HwMon", "Como foi feito este site?"]
+    },
+    {
+      id: "pcspec",
+      patterns: [/pcspec|pc spec|cpu.?z|especificac|smbios|benchmark|ghidra|rea-agents|rea \+ ghidra|engenharia reversa/i],
+      keywords: ["pcspec", "cpu-z", "cpuz", "especificacoes", "smbios", "benchmark", "ghidra", "engenharia reversa", "ddr"],
+      reply:
+        "O **PcSpec** é o mais recente: um clone funcional do **CPU-Z** escrito do zero em **C#/.NET 10**, só com APIs públicas do Windows (CPUID, SMBIOS, WMI e registro).\n\n• App **WPF** com 7 abas e chips de resumo\n• **CLI** com `cpu`, `memory`, `bench`, `report`, `json`\n• **Benchmark** próprio: inteiro, ponto flutuante, memória e SHA-256\n• Relatórios em **TXT, HTML e JSON**, tudo local e sem driver de kernel\n\nA ideia surgiu de um estudo de **engenharia reversa do CPU-Z 3.0.1** feito com **REA + Ghidra**, mas o código é independente. Está no GitHub.",
+      suggestions: ["Ver o GitHub dele", "Me fala mais do HwMon", "Quais outros projetos?"]
     },
     {
       id: "hwmon",
@@ -359,6 +391,14 @@ window.PORTFOLIO = (function () {
       reply:
         "O **HwMon** é um monitor de sensores para Windows escrito em **C#/.NET 10** — um clone funcional do HWiNFO64, sem usar código do original.\n\n• **307 sensores** em **58 hardwares** (CPU, GPU, placa-mãe, RAM, discos, rede)\n• App **WPF** com filtro, pausa, estatísticas e alertas\n• **CLI** com `list`, `watch`, `export` e `providers`\n• Exportação **CSV** e arquitetura em 3 camadas\n\nEstá no GitHub do Davi.",
       suggestions: ["Ver o GitHub dele", "Quais outros projetos?", "Ele sabe C#?"]
+    },
+    {
+      id: "csharp",
+      patterns: [/\bc\b|\bcsharp\b|\bc sharp\b|dotnet|\bwpf\b|\bnet 10\b/i],
+      keywords: ["csharp", "dotnet", "wpf", "desktop", "aplicativo windows"],
+      reply:
+        "**Sim — C#/.NET é uma das stacks dele.** Os dois projetos desktop do portfólio são em **C#/.NET 10** com **WPF**:\n\n• **PcSpec** — clone do CPU-Z, app de 7 abas + CLI e benchmark\n• **HwMon** — monitor de sensores, WPF + CLI, 307 sensores\n\nNos dois, a lógica fica em uma camada **Core** compartilhada entre a interface e a linha de comando.",
+      suggestions: ["Me fala mais do PcSpec", "Me fala mais do HwMon", "Quais são as habilidades?"]
     },
     {
       id: "portfolio-site",
@@ -449,7 +489,7 @@ window.PORTFOLIO = (function () {
       patterns: [/curriculo|cv\b|baixar|download/i],
       keywords: ["curriculo", "cv", "baixar", "download"],
       reply:
-        "O Davi tem dois currículos:\n\n📄 [Currículo — Suporte T.I.](assets/cv/Curriculo_Davi_Suporte_TI.pdf)\n📄 [Currículo — Administrativo](assets/cv/Curriculo_Davi_Administrativo.pdf)\n\nOs dois abrem em PDF e podem ser baixados pelo site.",
+        "O currículo do Davi está em PDF, atualizado e com foco em **desenvolvimento de software, web e aplicações**:\n\n📄 [Baixar currículo](assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf)\n\nEle também pode ser baixado pelos botões do site, na seção inicial e no bloco de contato.",
       suggestions: ["Como entrar em contato?", "Ele está disponível?", "Quais são as habilidades?"]
     },
     {
@@ -521,7 +561,7 @@ window.PORTFOLIO = (function () {
       patterns: [/o que voce (pode|sabe) (fazer|responder)|ajuda|me ajuda|topicos|perguntas/i],
       keywords: ["ajuda", "topicos", "o que pode responder", "o que voce sabe", "perguntas"],
       reply:
-        "Posso responder sobre:\n\n• Quem é o Davi e a formação dele\n• Experiência profissional e soft skills\n• Stack, projetos (HwMon, portfólio) e estudos\n• Contato, currículos, idiomas e disponibilidade\n\nÉ só perguntar em linguagem natural. 🙂",
+        "Posso responder sobre:\n\n• Quem é o Davi e a formação dele\n• Experiência profissional e soft skills\n• Stack, projetos (PcSpec, HwMon, portfólio) e estudos\n• Contato, currículo, idiomas e disponibilidade\n\nÉ só perguntar em linguagem natural. 🙂",
       suggestions: ["Quem é o Davi?", "Quais são os projetos?", "Ele está disponível?"]
     },
     {
@@ -560,13 +600,13 @@ window.PORTFOLIO = (function () {
       "- Nome: Davi Artur Silva Sousa. Mora em Torre, Recife — PE.",
       "- Cursa Análise e Desenvolvimento de Sistemas na Estácio. Ensino médio na ETE Porto Digital (2018). Curso I.A. para Negócios pela Casa Zero.",
       "- Experiência: Consultor de Vendas/Administrativo de out/2025 a mai/2026 — documentos, sistemas internos, planilhas, atendimento e comunicação interna.",
-      "- Stack: HTML, CSS, JavaScript, Python. Git/GitHub. Estudos em React, Node.js e banco de dados. Excel/Office avançado.",
-      "- Projetos: HwMon (monitor de sensores Windows em C#/.NET 10, WPF + CLI, 307 sensores, alertas, CSV); este portfólio (HTML/CSS/JS puro, Canvas, chatbot); laboratório React + Node.",
+      "- Stack: HTML, CSS, JavaScript, Python, C#/.NET (WPF e CLI). Git/GitHub. Estudos em React, Node.js e banco de dados. Excel/Office avançado.",
+      "- Projetos: PcSpec (clone do CPU-Z em C#/.NET 10: app WPF com 7 abas, CLI, benchmark single/multi-thread e relatórios TXT/HTML/JSON; nasceu de um estudo de engenharia reversa do CPU-Z 3.0.1 feito com REA + Ghidra); HwMon (monitor de sensores Windows em C#/.NET 10, WPF + CLI, 307 sensores, alertas, CSV); este portfólio (HTML/CSS/JS puro, Canvas, chatbot); laboratório React + Node.",
       "- Soft skills: proatividade, comunicação, organização, trabalho em equipe, aprendizado rápido, resolução de problemas.",
       "- Idiomas: português nativo; inglês intermediário.",
       "- Disponibilidade: em busca da primeira oportunidade no mercado de TI, aberto a diferentes frentes; presencial no Recife ou remoto.",
       "- Contato: Daviarturss27@gmail.com | (81) 99219-2077 | linkedin.com/in/daviartur | github.com/daviarturss.",
-      "- Currículos: assets/cv/Curriculo_Davi_Suporte_TI.pdf e assets/cv/Curriculo_Davi_Administrativo.pdf.",
+      "- Currículo (PDF único): assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf.",
       "- Idade e pretensão salarial não constam no currículo.",
       "",
       "Se perguntarem algo fora disso, responda que não tem a informação e indique o e-mail. Não fale sobre assuntos aleatórios; volte ao portfólio."

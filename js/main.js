@@ -66,14 +66,15 @@
      --------------------------------------------------------- */
   function initBackground() {
     const canvas = $("#bg-canvas");
-    if (!canvas) return { setMatrix() {}, refresh() {} };
+    if (!canvas) return { setMatrix() {}, refresh() {}, lowPower() {} };
     const ctx = canvas.getContext("2d");
     let w = 0, h = 0, dpr = 1;
     let particles = [];
     let raf = null;
     let lastFrame = 0;
     let matrixUntil = 0;
-    const FRAME_MS = 1000 / 30;
+    let frameMs = 1000 / 60;
+    let low = false;
     const mouse = { x: -9999, y: -9999, active: false };
 
     const palettes = {
@@ -90,7 +91,7 @@
       const rect = canvas.getBoundingClientRect();
       w = rect.width;
       h = rect.height;
-      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -98,7 +99,9 @@
     }
 
     function seed() {
-      const target = Math.max(20, Math.min(64, Math.round((w * h) / 26000)));
+      const target = low
+        ? Math.max(14, Math.min(34, Math.round((w * h) / 42000)))
+        : Math.max(20, Math.min(64, Math.round((w * h) / 26000)));
       particles = Array.from({ length: target }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -112,7 +115,7 @@
 
     function draw(now) {
       raf = requestAnimationFrame(draw);
-      if (now - lastFrame < FRAME_MS) return;
+      if (now - lastFrame < frameMs) return;
       lastFrame = now;
 
       ctx.clearRect(0, 0, w, h);
@@ -253,7 +256,17 @@
         matrixUntil = performance.now() + (ms || 6000);
         setTimeout(() => { if (!reduced) start(); }, (ms || 6000) + 60);
       },
-      refresh() { resize(); }
+      refresh() { resize(); },
+      lowPower() {
+        low = true;
+        frameMs = 1000 / 30;
+        seed();
+      },
+      fullPower() {
+        low = false;
+        frameMs = 1000 / 60;
+        seed();
+      }
     };
   }
 
@@ -271,6 +284,14 @@
       .filter(Boolean);
 
     let ticking = false;
+    let bounds = [];
+    let measureTimer;
+
+    /* mede as seções só quando o layout muda — nada de getBoundingClientRect por frame */
+    function measure() {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      bounds = sections.map((sec) => ({ id: sec.id, top: sec.getBoundingClientRect().top + y }));
+    }
     function onScroll() {
       const top = window.scrollY || document.documentElement.scrollTop;
       if (header) header.classList.toggle("is-scrolled", top > 8);
@@ -278,13 +299,25 @@
       if (progress) progress.style.width = `${max > 0 ? Math.min(100, (top / max) * 100) : 0}%`;
 
       let current = "";
-      const offset = window.innerHeight * 0.32;
-      sections.forEach((sec) => {
-        if (sec.getBoundingClientRect().top <= offset) current = sec.id;
-      });
+      const line = top + window.innerHeight * 0.32;
+      for (let i = 0; i < bounds.length; i++) {
+        if (bounds[i].top <= line) current = bounds[i].id;
+      }
       links.forEach((a) => a.classList.toggle("is-active", a.dataset.nav === current));
       ticking = false;
     }
+
+    function remeasure() {
+      measure();
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(onScroll);
+      }
+    }
+
+    measure();
+    window.addEventListener("load", remeasure);
+    document.fonts?.ready.then(remeasure);
 
     window.addEventListener("scroll", () => {
       if (!ticking) {
@@ -320,6 +353,8 @@
     });
     window.addEventListener("resize", () => {
       if (window.innerWidth > 920) closeMenu();
+      clearTimeout(measureTimer);
+      measureTimer = setTimeout(remeasure, 180);
     });
   }
 
@@ -432,8 +467,10 @@
 
         let visual = "";
         if (p.image) {
+          const w = Number(p.imageW) || 1180;
+          const h = Number(p.imageH) || 820;
           visual = `<div class="project-visual">
-              <img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title)}" loading="lazy" width="1180" height="820" />
+              <img src="${esc(p.image)}" alt="${esc(p.imageAlt || p.title)}" loading="lazy" decoding="async" width="${w}" height="${h}" />
             </div>`;
         } else {
           const glyph = p.id === "portfolio" ? "&lt;/&gt;" : "R + N";
@@ -501,7 +538,7 @@
       `  <span class="tok-prop">cargo</span><span class="tok-punc">:</span> <span class="tok-str">"TI em formação"</span><span class="tok-punc">,</span>`,
       `  <span class="tok-prop">base</span><span class="tok-punc">:</span> <span class="tok-str">"Recife · PE"</span><span class="tok-punc">,</span>`,
       `  <span class="tok-prop">formacao</span><span class="tok-punc">:</span> <span class="tok-str">"ADS · Estácio"</span><span class="tok-punc">,</span>`,
-      `  <span class="tok-prop">stack</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"HTML"</span><span class="tok-punc">,</span> <span class="tok-str">"CSS"</span><span class="tok-punc">,</span> <span class="tok-str">"JS"</span><span class="tok-punc">,</span> <span class="tok-str">"Python"</span><span class="tok-punc">],</span>`,
+      `  <span class="tok-prop">stack</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"HTML"</span><span class="tok-punc">,</span> <span class="tok-str">"CSS"</span><span class="tok-punc">,</span> <span class="tok-str">"JS"</span><span class="tok-punc">,</span> <span class="tok-str">"Python"</span><span class="tok-punc">,</span> <span class="tok-str">"C#"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">estudando</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"React"</span><span class="tok-punc">,</span> <span class="tok-str">"Node"</span><span class="tok-punc">,</span> <span class="tok-str">"Banco de dados"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">disponivel</span><span class="tok-punc">:</span> <span class="tok-bool">true</span><span class="tok-punc">,</span>`,
       `<span class="tok-punc">};</span>`,
@@ -511,7 +548,7 @@
     skills: [
       `<span class="tok-punc">{</span>`,
       `  <span class="tok-prop">"frontend"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"HTML5"</span><span class="tok-punc">,</span> <span class="tok-str">"CSS3"</span><span class="tok-punc">,</span> <span class="tok-str">"JavaScript"</span><span class="tok-punc">],</span>`,
-      `  <span class="tok-prop">"backend"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"Python"</span><span class="tok-punc">,</span> <span class="tok-str">"Node.js (estudos)"</span><span class="tok-punc">],</span>`,
+      `  <span class="tok-prop">"backend"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"Python"</span><span class="tok-punc">,</span> <span class="tok-str">"C#/.NET"</span><span class="tok-punc">,</span> <span class="tok-str">"Node.js (estudos)"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">"tools"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"Git"</span><span class="tok-punc">,</span> <span class="tok-str">"GitHub"</span><span class="tok-punc">,</span> <span class="tok-str">"VS Code"</span><span class="tok-punc">,</span> <span class="tok-str">"Excel"</span><span class="tok-punc">],</span>`,
       `  <span class="tok-prop">"extras"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"IA generativa"</span><span class="tok-punc">,</span> <span class="tok-str">"Automação"</span><span class="tok-punc">,</span>`,
       `             <span class="tok-str">"Resolução de problemas"</span><span class="tok-punc">],</span>`,
@@ -576,31 +613,45 @@
     ];
     if (reduced) { el.textContent = roles[0]; return; }
 
-    let roleIndex = 0, charIndex = 0, deleting = false;
+    let roleIndex = 0, charIndex = 0, deleting = false, paused = false, timer = null;
+    function schedule(delay) {
+      clearTimeout(timer);
+      timer = setTimeout(tick, delay);
+    }
     function tick() {
+      if (paused) return;
       const current = roles[roleIndex];
       if (!deleting) {
         charIndex++;
         el.textContent = current.slice(0, charIndex);
         if (charIndex === current.length) {
           deleting = true;
-          setTimeout(tick, 1900);
+          schedule(1900);
           return;
         }
-        setTimeout(tick, 55 + Math.random() * 45);
+        schedule(55 + Math.random() * 45);
       } else {
         charIndex--;
         el.textContent = current.slice(0, charIndex);
         if (charIndex === 0) {
           deleting = false;
           roleIndex = (roleIndex + 1) % roles.length;
-          setTimeout(tick, 280);
+          schedule(280);
           return;
         }
-        setTimeout(tick, 26);
+        schedule(26);
       }
     }
-    setTimeout(tick, 500);
+    schedule(500);
+
+    /* fora da tela, a digitação para — não faz sentido gastar CPU com o hero invisível */
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        const visible = entries[0].isIntersecting;
+        if (visible && paused) { paused = false; schedule(140); }
+        else if (!visible) { paused = true; clearTimeout(timer); }
+      }, { threshold: 0 }).observe(el);
+    }
   }
 
   /* ---------------------------------------------------------
@@ -663,22 +714,26 @@
   function initTilt() {
     if (!finePointer || reduced) return;
     $$(".tilt").forEach((el) => {
-      let raf = null;
+      let raf = null, rect = null, nx = 0.5, ny = 0.5;
+      const forget = () => { rect = null; };
+      el.addEventListener("pointerenter", () => { rect = el.getBoundingClientRect(); });
+      window.addEventListener("scroll", forget, { passive: true });
+      window.addEventListener("resize", forget, { passive: true });
       el.addEventListener("pointermove", (e) => {
-        const rect = el.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width;
-        const py = (e.clientY - rect.top) / rect.height;
-        const rx = (0.5 - py) * 6;
-        const ry = (px - 0.5) * 7;
-        el.style.setProperty("--mx", `${px * 100}%`);
-        el.style.setProperty("--my", `${py * 100}%`);
-        if (raf) cancelAnimationFrame(raf);
+        if (!rect) rect = el.getBoundingClientRect();
+        nx = (e.clientX - rect.left) / rect.width;
+        ny = (e.clientY - rect.top) / rect.height;
+        if (raf) return;
         raf = requestAnimationFrame(() => {
-          el.style.transform = `perspective(1100px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-2px)`;
+          raf = null;
+          el.style.setProperty("--mx", `${(nx * 100).toFixed(1)}%`);
+          el.style.setProperty("--my", `${(ny * 100).toFixed(1)}%`);
+          el.style.transform = `perspective(1100px) rotateX(${((0.5 - ny) * 6).toFixed(2)}deg) rotateY(${((nx - 0.5) * 7).toFixed(2)}deg) translateY(-2px)`;
         });
       });
       el.addEventListener("pointerleave", () => {
-        if (raf) cancelAnimationFrame(raf);
+        rect = null;
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
         el.style.transform = "";
       });
     });
@@ -691,20 +746,34 @@
     if (!finePointer || reduced) return;
     const glow = $("#cursor-glow");
     if (!glow) return;
-    let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
-    let x = tx, y = ty, raf = null;
+    let x = window.innerWidth / 2, y = window.innerHeight / 2;
+    let tx = x, ty = y, raf = null, placed = false;
+
+    /* a animação só existe enquanto o mouse se move — em repouso, custo zero */
     function loop() {
-      x += (tx - x) * 0.12;
-      y += (ty - y) * 0.12;
+      const dx = tx - x, dy = ty - y;
+      if (Math.abs(dx) < 0.35 && Math.abs(dy) < 0.35) {
+        x = tx; y = ty;
+        glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        raf = null;
+        return;
+      }
+      x += dx * 0.22;
+      y += dy * 0.22;
       glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       raf = requestAnimationFrame(loop);
     }
+
     window.addEventListener("pointermove", (e) => {
       tx = e.clientX;
       ty = e.clientY;
-      glow.classList.add("is-on");
+      if (!placed) { placed = true; x = tx; y = ty; }
+      if (!glow.classList.contains("is-on")) glow.classList.add("is-on");
+      if (raf === null) raf = requestAnimationFrame(loop);
     }, { passive: true });
-    loop();
+
+    document.addEventListener("pointerleave", () => { glow.classList.remove("is-on"); });
+    window.addEventListener("blur", () => { glow.classList.remove("is-on"); });
   }
 
   /* ---------------------------------------------------------
@@ -778,20 +847,6 @@
     });
   }
 
-  function initDetails() {
-    const menu = $(".resume-menu");
-    if (!menu) return;
-    document.addEventListener("click", (e) => {
-      if (menu.open && !menu.contains(e.target)) menu.removeAttribute("open");
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && menu.open) menu.removeAttribute("open");
-    });
-    $$("a", menu).forEach((a) =>
-      a.addEventListener("click", () => setTimeout(() => menu.removeAttribute("open"), 120))
-    );
-  }
-
   /* ---------------------------------------------------------
      Command palette
      --------------------------------------------------------- */
@@ -816,8 +871,7 @@
           toast(ok ? "E-mail copiado!" : "Copie manualmente: Daviarturss27@gmail.com");
         } },
       { group: "Ações", label: "Modo matrix", hint: "easter egg", icon: "terminal", run: () => matrix() },
-      { group: "Currículos", label: "Baixar CV — Suporte T.I.", hint: "PDF", icon: "download", run: () => { window.location.href = "assets/cv/Curriculo_Davi_Suporte_TI.pdf"; } },
-      { group: "Currículos", label: "Baixar CV — Administrativo", hint: "PDF", icon: "download", run: () => { window.location.href = "assets/cv/Curriculo_Davi_Administrativo.pdf"; } },
+      { group: "Ações", label: "Baixar currículo", hint: "PDF · desenvolvimento", icon: "download", run: () => { window.location.href = "assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf"; } },
       { group: "Links", label: "GitHub", hint: "github.com/daviarturss", icon: "github", run: () => window.open("https://github.com/daviarturss", "_blank", "noopener") },
       { group: "Links", label: "LinkedIn", hint: "in/daviartur", icon: "linkedin", run: () => window.open("https://www.linkedin.com/in/daviartur/", "_blank", "noopener") }
     ];
@@ -959,6 +1013,50 @@
   }
 
   /* ---------------------------------------------------------
+     Pausa animações que saíram da tela
+     --------------------------------------------------------- */
+  function initOffscreenPause() {
+    if (!("IntersectionObserver" in window)) return;
+    const marquee = $(".marquee");
+    if (!marquee) return;
+    const io = new IntersectionObserver(
+      (entries) => marquee.classList.toggle("is-offscreen", !entries[0].isIntersecting),
+      { rootMargin: "160px 0px" }
+    );
+    io.observe(marquee);
+  }
+
+  /* ---------------------------------------------------------
+     Se a máquina não segurar 60 fps, o site se simplifica sozinho
+     --------------------------------------------------------- */
+  function initAdaptivePerf(bg) {
+    if (reduced) return;
+    let armed = false;
+    let start = 0;
+    let frames = 0;
+    function probe(now) {
+      if (!armed) {
+        armed = true;
+        start = now;
+        requestAnimationFrame(probe);
+        return;
+      }
+      frames++;
+      const elapsed = now - start;
+      if (elapsed < 1200) {
+        requestAnimationFrame(probe);
+        return;
+      }
+      const fps = (frames / elapsed) * 1000;
+      if (fps < 45 && !document.hidden) {
+        document.documentElement.classList.add("perf-low");
+        bg.lowPower();
+      }
+    }
+    setTimeout(() => requestAnimationFrame(probe), 1600);
+  }
+
+  /* ---------------------------------------------------------
      Init
      --------------------------------------------------------- */
   function init() {
@@ -966,6 +1064,7 @@
     initTheme();
     initHeader();
     renderMarquee();
+    initOffscreenPause();
     renderHighlights();
     renderStats();
     renderSkills();
@@ -979,12 +1078,13 @@
     initCursor();
     initCopyButtons();
     initContactForm();
-    initDetails();
     initPalette(bg);
     initEasterEgg(bg);
 
     const year = $("#year");
     if (year) year.textContent = String(new Date().getFullYear());
+
+    initAdaptivePerf(bg);
 
     // Pequeno atraso para o badge do chat chamar atenção
     setTimeout(() => $("#chat-fab")?.classList.add("has-badge"), 6000);

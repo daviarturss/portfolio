@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Davi Artur — Portfólio | TI em formação</title>
-  <meta name="description" content="Portfólio de Davi Artur Silva Sousa — estudante de ADS no Recife com base em HTML, CSS, JavaScript e Python, automação e IA. Projetos, trajetória e um assistente que responde sobre mim." />
+  <meta name="description" content="Portfólio de Davi Artur Silva Sousa — estudante de ADS no Recife com base em HTML, CSS, JavaScript, Python e C#/.NET. Projetos como PcSpec e HwMon, trajetória e um assistente que responde sobre mim." />
   <meta name="author" content="Davi Artur Silva Sousa" />
   <meta name="theme-color" content="#070a12" />
 
@@ -16,7 +16,7 @@
   <meta property="og:image" content="assets/img/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Cartão com o nome Davi Artur, cargo e tecnologias HTML, CSS, JavaScript, Python e Git" />
+  <meta property="og:image:alt" content="Cartão com o nome Davi Artur, cargo e tecnologias HTML, CSS, JavaScript, Python, C#/.NET e Git" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Davi Artur — Portfólio | TI em formação" />
   <meta name="twitter:description" content="Programação, automação e IA. Projetos, trajetória e um assistente que responde sobre mim." />
@@ -42,7 +42,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     />
   </noscript>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 
   <script type="application/ld+json">
   {
@@ -54,7 +54,7 @@
     "telephone": "+55-81-99219-2077",
     "address": { "@type": "PostalAddress", "addressLocality": "Recife", "addressRegion": "PE", "addressCountry": "BR" },
     "sameAs": ["https://github.com/daviarturss", "https://www.linkedin.com/in/daviartur/"],
-    "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "Git", "Suporte Técnico", "Inteligência Artificial"]
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Python", "C#", ".NET", "Git", "WPF", "Inteligência Artificial"]
   }
   </script>
 </head>
@@ -100,9 +100,11 @@
   <div class="bg" aria-hidden="true">
     <canvas id="bg-canvas"></canvas>
     <div class="bg-grid"></div>
-    <div class="bg-aurora bg-aurora--1"></div>
-    <div class="bg-aurora bg-aurora--2"></div>
-    <div class="bg-aurora bg-aurora--3"></div>
+    <div class="bg-aurora-wrap">
+      <div class="bg-aurora bg-aurora--1"></div>
+      <div class="bg-aurora bg-aurora--2"></div>
+      <div class="bg-aurora bg-aurora--3"></div>
+    </div>
     <div class="bg-noise"></div>
   </div>
   <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
@@ -150,51 +152,38 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="availability" data-reveal>
+          <div class="availability" data-hero-in>
             <span class="pulse-dot" aria-hidden="true"></span>
             <span>Disponível para ingressar no mercado de T.I.</span>
           </div>
 
-          <h1 class="hero-title" data-reveal style="--d:.06s">
+          <h1 class="hero-title" data-hero-in style="--d:.06s">
             Davi <span class="grad">Artur</span><span class="title-dot" aria-hidden="true">.</span>
           </h1>
 
-          <p class="hero-role mono" data-reveal style="--d:.12s">
+          <p class="hero-role mono" data-hero-in style="--d:.12s">
             <span class="prompt" aria-hidden="true">&gt;</span>
             <span id="typed-role" aria-hidden="true"></span><span class="typed-caret" aria-hidden="true"></span>
             <span class="sr-only">Profissional de TI em formação</span>
           </p>
 
-          <p class="hero-lead" data-reveal style="--d:.18s">
+          <p class="hero-lead" data-hero-in style="--d:.18s">
             Estudante de ADS no Recife, construindo soluções com programação, automação e IA.
             Base técnica em constante crescimento e olhar de quem já trabalhou com clientes.
           </p>
 
-          <div class="hero-actions" data-reveal style="--d:.24s">
+          <div class="hero-actions" data-hero-in style="--d:.24s">
             <a class="btn btn-primary" href="#projetos">
               Ver projetos
               <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg>
             </a>
-            <details class="resume-menu">
-              <summary class="btn btn-ghost">
-                <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-                Currículo
-                <svg class="icon icon-chev" aria-hidden="true"><use href="#i-chevron"/></svg>
-              </summary>
-              <div class="resume-menu-list">
-                <a href="assets/cv/Curriculo_Davi_Suporte_TI.pdf" download>
-                  <span>Suporte T.I.<small>PDF · suporte e rotinas de TI</small></span>
-                  <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-                </a>
-                <a href="assets/cv/Curriculo_Davi_Administrativo.pdf" download>
-                  <span>Administrativo<small>PDF · rotinas e atendimento</small></span>
-                  <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-                </a>
-              </div>
-            </details>
+            <a class="btn btn-ghost" href="assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf" download>
+              <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+              Baixar currículo
+            </a>
           </div>
 
-          <div class="hero-socials" data-reveal style="--d:.3s">
+          <div class="hero-socials" data-hero-in style="--d:.3s">
             <a class="social-btn" href="https://github.com/daviarturss" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Davi Artur">
               <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
             </a>
@@ -207,14 +196,14 @@
             <span class="social-note mono">Recife · PE · Brasil</span>
           </div>
 
-          <dl class="hero-facts" data-reveal style="--d:.36s">
+          <dl class="hero-facts" data-hero-in style="--d:.36s">
             <div><dt>Base</dt><dd>Recife · PE</dd></div>
             <div><dt>Formação</dt><dd>ADS · Estácio</dd></div>
             <div><dt>Foco</dt><dd>Tecnologia &amp; IA</dd></div>
           </dl>
         </div>
 
-        <div class="hero-visual" data-reveal style="--d:.15s">
+        <div class="hero-visual" data-hero-in style="--d:.15s">
           <div class="code-window tilt" id="code-window">
             <div class="code-titlebar">
               <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -299,7 +288,7 @@
             </div>
 
             <div class="profile-actions">
-              <a class="btn btn-primary btn-sm" href="assets/cv/Curriculo_Davi_Suporte_TI.pdf" download>
+              <a class="btn btn-primary btn-sm" href="assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf" download>
                 <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
                 Baixar CV
               </a>
@@ -314,7 +303,7 @@
 
           <div class="about-main">
             <div class="about-text" data-reveal>
-              <p>Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em programação — HTML, CSS, JavaScript e Python — além de Git, banco de dados e ferramentas de inteligência artificial.</p>
+              <p>Sou Davi Artur, estudante de Análise e Desenvolvimento de Sistemas no Recife e apaixonado por tecnologia. Venho construindo minha base em programação — HTML, CSS, JavaScript e Python na web, e C#/.NET em aplicações desktop — além de Git, banco de dados e ferramentas de inteligência artificial.</p>
               <p>Minha trajetória passa pela área administrativa, onde aprendi a lidar com pessoas, sistemas, prazos e detalhes. Levo essas habilidades para o código: <strong>organização, comunicação clara e vontade de resolver o problema de verdade</strong>.</p>
               <p>Hoje busco minha primeira oportunidade em TI para aprender em contexto real e entregar valor desde o primeiro dia, aberto a oportunidades.</p>
               <blockquote class="pitch">
@@ -356,7 +345,7 @@
         <header class="section-head" data-reveal>
           <span class="eyebrow"><i>03</i> Projetos</span>
           <h2>Coisas que eu <span class="grad">construí</span>.</h2>
-          <p class="section-lead">Projetos reais, com problemas reais. Do monitor de hardware ao site que você está lendo.</p>
+          <p class="section-lead">Projetos reais, com problemas reais. De clones de ferramentas de diagnóstico a este site, tudo feito para aprender na prática.</p>
         </header>
 
         <div class="projects-grid" id="projects-grid"></div>
@@ -390,9 +379,9 @@
                 <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
                 <p>Da rotina administrativa para o código: organização, atendimento e resolução de problemas.</p>
               </div>
-              <a class="btn btn-ghost btn-sm btn-block" href="assets/cv/Curriculo_Davi_Administrativo.pdf" download>
+              <a class="btn btn-ghost btn-sm btn-block" href="assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf" download>
                 <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-                Currículo administrativo
+                Ver currículo completo
               </a>
             </div>
           </aside>
@@ -596,8 +585,8 @@
     </div>
   </noscript>
 
-  <script src="js/data.js"></script>
-  <script src="js/chatbot.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/data.js?v=6"></script>
+  <script src="js/chatbot.js?v=6"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

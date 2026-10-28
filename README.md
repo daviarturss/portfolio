@@ -10,6 +10,7 @@ Eu construí este site como parte da minha transição para a área de TI. Ele �
 
 ## Sumário
 
+- [Projetos em destaque](#projetos-em-destaque)
 - [Como usei IA neste projeto](#como-usei-ia-neste-projeto)
 - [Funcionalidades](#funcionalidades)
 - [Stack e decisões técnicas](#stack-e-decisões-técnicas)
@@ -20,9 +21,31 @@ Eu construí este site como parte da minha transição para a área de TI. Ele �
 - [Personalização](#personalização)
 - [Deploy](#deploy)
 - [Acessibilidade e desempenho](#acessibilidade-e-desempenho)
-- [Sobre os currículos](#sobre-os-currículos)
+- [Sobre o currículo](#sobre-o-currículo)
 - [Segurança](#segurança)
 - [Contato](#contato)
+
+---
+
+## Projetos em destaque
+
+O site apresenta quatro trabalhos. Dois deles são aplicações desktop em C#/.NET que desenvolvi para estudar, na prática, como o software conversa com o hardware.
+
+### PcSpec
+
+Clone funcional do CPU-Z escrito do zero em **C#/.NET 10**, usando apenas APIs públicas do Windows: `CPUID`, SMBIOS, WMI, registro e topologia de processadores. Tem app WPF com sete abas (Sistema, CPU, Placa-mãe, Memória, Gráficos, Benchmark e Relatório), uma CLI completa (`info`, `cpu`, `memory`, `bench`, `report`, `json`, `smbios`) e benchmark próprio com quatro cargas em 1 e N threads. Gera relatórios em TXT, HTML autocontido e JSON. Não instala driver de kernel, não lê a memória de outro processo e não faz acesso à rede.
+
+O projeto nasceu de um estudo de **engenharia reversa do CPU-Z 3.0.1**, no qual usei duas ferramentas de terceiros — **REA (Reverse Engineer Anything)** para a análise assistida do binário e **Ghidra 12.2** para o descompilado. O código do PcSpec é independente: a engenharia reversa serviu para entender *o que* o programa original lia e *como* organizava a interface, não para reaproveitar implementação. O dossiê dessa análise está fora deste repositório.
+
+→ [github.com/daviarturss/pcspec](https://github.com/daviarturss/pcspec)
+
+### HwMon
+
+Monitor de sensores para Windows, também em **C#/.NET 10**, inspirado no HWiNFO64. Lê CPU, GPU, placa-mãe, memória, discos e rede via LibreHardwareMonitorLib — **307 sensores em 58 hardwares** — com filtros, estatísticas em tempo real, alertas por limite e exportação CSV. A CLI cobre `list`, `watch`, `export` e `providers`.
+
+→ [github.com/daviarturss/hwmon](https://github.com/daviarturss/hwmon)
+
+Os outros dois são este portfólio e um laboratório de estudos com React + Node.
 
 ---
 
@@ -37,7 +60,7 @@ Quero ser transparente sobre isso desde o começo, porque faz parte de como eu t
 - **Ajudar a redigir textos** — rascunhos de descrições de projetos, mensagens do assistente e este README, sempre revisados e ajustados por mim para refletir o que eu realmente sei e fiz.
 - **Acelerar tarefas repetitivas** — geração de variações de markup e de estilos que eu depois testei e adaptei.
 
-O que a IA **não** fez: inventar experiência profissional, criar projetos fictícios ou substituir o aprendizado. Os fatos sobre formação, experiência e contato vêm dos meus currículos. O código foi lido, executado, testado no navegador e ajustado por mim — inclusive quando a primeira versão não funcionava.
+O que a IA **não** fez: inventar experiência profissional, criar projetos fictícios ou substituir o aprendizado. Os fatos sobre formação, experiência e contato vêm do meu currículo. O código foi lido, executado, testado no navegador e ajustado por mim — inclusive quando a primeira versão não funcionava.
 
 Esse uso é coerente com o que já faço no dia a dia e com o curso **I.A. para Negócios (Casa Zero)**: IA como ferramenta de produtividade e pesquisa, não como atalho para fingir conhecimento.
 
@@ -111,8 +134,8 @@ portfolio/
 │   ├── main.js           # fundo, tema, renderização, palette, interações
 │   └── chatbot.js        # intenções locais + streaming via Ollama
 ├── assets/
-│   ├── cv/               # currículos em PDF
-│   └── img/              # screenshot do HwMon e imagem de Open Graph
+│   ├── cv/               # currículo em PDF (arquivo único)
+│   └── img/              # screenshots do PcSpec e do HwMon + imagem de Open Graph
 ├── server.js             # servidor estático + proxy /api/chat
 ├── package.json
 ├── .env.example
@@ -232,8 +255,8 @@ A resposta indica se a IA está ativa, qual provedor e modelo estão em uso e, s
 - **Cores e gradientes:** bloco `:root` e `[data-theme="light"]` no início de `css/style.css`.
 - **Fontes:** `Space Grotesk` (títulos), `Inter` (texto) e `JetBrains Mono` (código), via Google Fonts.
 - **Imagem de compartilhamento:** `assets/img/og.png` (1200×630), referenciada nas metatags Open Graph.
-- **Currículos:** substitua os PDFs em `assets/cv/` mantendo os mesmos nomes, ou ajuste os caminhos em `data.js` e no `index.html`.
-- **Novo projeto:** acrescente um objeto em `projects` com `title`, `subtitle`, `description`, `bullets`, `tags` e, se quiser, `image` e `link`.
+- **Currículo:** é um PDF único em `assets/cv/Curriculo_Davi_Artur_Silva_Sousa.pdf`. Para atualizar, substitua o arquivo; se mudar o nome, ajuste `data.js` (bloco `resumes`) e os links de download em `index.html`.
+- **Novo projeto:** acrescente um objeto em `projects` com `title`, `subtitle`, `description`, `bullets`, `tags`, `metrics` e, se quiser, `image`, `imageW`/`imageH` e `link`.
 
 ---
 
@@ -257,26 +280,30 @@ Antes de publicar, troque a imagem Open Graph por uma versão definitiva e confi
 - Respeito a `prefers-reduced-motion`: animações são desligadas e o fundo vira um quadro estático.
 - Contraste pensado para os dois temas; o chat mantém área de toque confortável no mobile.
 - Sem bibliotecas no front, imagens com `loading="lazy"` e fontes carregadas de forma assíncrona (`media="print"` + `onload`), sem bloquear o primeiro paint.
-- O Canvas limita o `devicePixelRatio` a 1.5, desenha a **30 fps** (as partículas são lentas; não precisa de 60), usa menos partículas em telas pequenas e **pausa quando a aba ou a janela perde o foco**.
+- O Canvas limita o `devicePixelRatio` a 1.25, desenha a **60 fps** com orçamento de partículas, usa menos partículas em telas pequenas e **pausa quando a aba ou a janela perde o foco**.
 - Animações de destaque usam `transform`/`opacity` (compostas pela GPU). O pulso de disponibilidade virou anel animado em vez de `box-shadow`, e o gradiente dos títulos é estático — os dois custavam repaint contínuo.
-- Os desfoques pesados saíram de cards, header e botões; sobraram apenas no painel do chat e na paleta de comandos, onde o efeito é realmente visível. O fundo aurora passou a usar só gradientes suaves, sem `filter: blur()` em três camadas grandes.
-- Servidor com **gzip** (CSS de ~64 KB cai para ~13 KB, JS de ~37 KB para ~10 KB), `ETag`/`Last-Modified` com resposta `304` e cache de uma hora para assets — curto o bastante para eu não publicar uma versão antiga por engano.
+- Os desfoques pesados saíram de cards, header, botões e do painel do chat; sobrou apenas na paleta de comandos, onde o efeito é realmente visível. O fundo aurora passou a usar só gradientes suaves, sem `filter: blur()`, e as camadas foram unidas em um único wrapper animado.
+- Servidor com **gzip** (CSS de ~64 KB cai para ~13 KB, JS de ~37 KB para ~10 KB), `ETag`/`Last-Modified` com resposta `304` e `Cache-Control: no-cache` nos assets — o navegador revalida a cada visita, e os links de CSS/JS usam `?v=` para garantir a versão nova.
+- Sem loops de `requestAnimationFrame` permanentes: cursor, tilt, scroll e marquee só trabalham quando há interação ou quando estão visíveis, e existe um modo `perf-low` automático para máquinas que não sustentam 60 fps.
 
 Números do último teste local (1600×900, Edge headless): o site parado caiu de ~21% de CPU do renderer + ~21% da GPU para ~14% + ~10%; em rede 4G simulada, o total inicial caiu de ~149 KB para ~41 KB e o primeiro paint de ~2,7 s para ~2,2 s. Em máquina com GPU integrada ou muitos apps abertos, a diferença tende a ser mais perceptível que esses números.
 
 ---
 
-## Sobre os currículos
+## Sobre o currículo
 
-Mantenho duas versões, com focos diferentes:
+O site disponibiliza **um único currículo em PDF**, na versão mais recente:
 
-- **Suporte T.I.** — suporte técnico, resolução de problemas e rotinas de TI.
-- **Administrativo** — atendimento, organização, planilhas e sistemas internos.
+- **Desenvolvimento de Software / Web e Aplicações** — formação em ADS na Estácio, projetos (PcSpec, HwMon, este portfólio), stack em HTML, CSS, JavaScript, C#/.NET e Python, curso de I.A. para Negócios e experiência administrativa.
 
-Os textos do site combinam os dois: contato e objetivo vêm da versão de suporte; a experiência vem da versão administrativa. Dois pontos que ajustei de propósito:
+Antes eu mantinha duas versões (suporte técnico e administrativo). Removi as duas porque elas ficaram desatualizadas em relação ao que passei a construir: hoje o currículo é centrado em desenvolvimento e os projetos falam por si.
 
-- **Instituição:** usei **Estácio (ADS, cursando)**, conforme o currículo mais recente. A versão anterior citava outra faculdade e outro semestre — mantive apenas o que estava consistente.
-- **Inglês:** adotei **intermediário**, que é o que aparece no currículo atual. A versão antiga dizia "avançado"; preferi o mais conservador até ter como comprovar.
+Dois pontos que ajustei de propósito, mantendo o que é consistente com o PDF:
+
+- **Instituição:** **Estácio (ADS, cursando)**, conforme o currículo atual.
+- **Inglês:** **intermediário**, exatamente como está no currículo — prefiro o mais conservador até ter como comprovar o contrário.
+
+O PDF mostra que busco **estágio em Desenvolvimento de Software**; no site mantive a formulação mais ampla ("disponível para ingressar no mercado de TI, aberto a diferentes frentes"), porque não quero limitar conversas a uma única função.
 
 Se algum dado mudar, o lugar de corrigir é `js/data.js` — e, por consequência, o prompt da IA.
 

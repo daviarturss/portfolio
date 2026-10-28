@@ -289,7 +289,7 @@ function serveStatic(req, res, pathname) {
 
   const ext = path.extname(file).toLowerCase();
   const type = MIME[ext] || "application/octet-stream";
-  const cache = ext === ".html" ? "no-cache" : "public, max-age=3600";
+  const cache = "no-cache";
   const etag = `W/"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
 
   const headers = {
